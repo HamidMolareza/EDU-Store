@@ -18,7 +18,7 @@
       }
     },
     "WatchDev": {
-      "commandName": "Project",
+      "commandName": "Executable",
       "dotnetRunMessages": true,
       "executablePath": "dotnet",
       "workingDirectory": "$(ProjectDir)",
@@ -26,7 +26,7 @@
       "hotReloadProfile": "aspnetcore",
       "commandLineArgs": "watch run",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:5038",
+      "applicationUrl": "http://localhost:5082",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
