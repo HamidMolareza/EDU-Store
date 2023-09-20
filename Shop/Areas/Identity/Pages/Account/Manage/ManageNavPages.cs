@@ -28,14 +28,11 @@ public static class ManageNavPages {
     public static string ChangePasswordNavClass(ViewContext viewContext) =>
         PageNavClass(viewContext, ChangePassword);
 
-    public static string DeletePersonalDataNavClass(ViewContext viewContext) =>
-        PageNavClass(viewContext, DeletePersonalData);
-
     public static string PersonalDataNavClass(ViewContext viewContext) => PageNavClass(viewContext, PersonalData);
 
     public static string PageNavClass(ViewContext viewContext, string page) {
         var activePage = viewContext.ViewData["ActivePage"] as string
-                         ?? System.IO.Path.GetFileNameWithoutExtension(viewContext.ActionDescriptor.DisplayName);
+                         ?? Path.GetFileNameWithoutExtension(viewContext.ActionDescriptor.DisplayName);
         return string.Equals(activePage, page, StringComparison.OrdinalIgnoreCase) ? "active" : null;
     }
 }

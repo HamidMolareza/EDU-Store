@@ -1,6 +1,3 @@
-// Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
-
 #nullable disable
 
 using System.ComponentModel.DataAnnotations;
@@ -24,59 +21,36 @@ public class ChangePasswordModel : PageModel {
         _logger        = logger;
     }
 
-    /// <summary>
-    ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     [BindProperty]
     public InputModel Input { get; set; }
 
-    /// <summary>
-    ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     [TempData]
     public string StatusMessage { get; set; }
 
-    /// <summary>
-    ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class InputModel {
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
-        [Required]
+        [Required(ErrorMessage = "{0} ضروری است.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
+        [Display(Name = "رمز فعلی")]
         public string OldPassword { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.",
-            MinimumLength = 6)]
+        [Required(ErrorMessage = "{0} ضروری است.")]
+        [StringLength(100, ErrorMessage = "{0} باید حداقل {2} و حداکثر {1} کاراکتر باشه.",
+            MinimumLength = 3)]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        [Display(Name = "رمز جدید")]
         public string NewPassword { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Display(Name = "تکرار رمز جدید")]
+        [Compare("NewPassword", ErrorMessage = "رمز جدید با تکرار آن برابر نیست.")]
         public string ConfirmPassword { get; set; }
     }
 
     public async Task<IActionResult> OnGetAsync() {
         var user = await _userManager.GetUserAsync(User);
         if (user == null) {
-            return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            await _signInManager.SignOutAsync();
+            return RedirectToPage();
         }
 
         var hasPassword = await _userManager.HasPasswordAsync(user);
@@ -94,7 +68,8 @@ public class ChangePasswordModel : PageModel {
 
         var user = await _userManager.GetUserAsync(User);
         if (user == null) {
-            return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            await _signInManager.SignOutAsync();
+            return RedirectToPage();
         }
 
         var changePasswordResult =
@@ -108,9 +83,9 @@ public class ChangePasswordModel : PageModel {
         }
 
         await _signInManager.RefreshSignInAsync(user);
-        _logger.LogInformation("User changed their password successfully.");
-        StatusMessage = "Your password has been changed.";
-
+        _logger.LogInformation("User changed their password successfully");
+        
+        StatusMessage = "رمز جدید ثبت شد";
         return RedirectToPage();
     }
 }

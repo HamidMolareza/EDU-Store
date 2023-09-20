@@ -59,6 +59,7 @@ public class RegisterModel : PageModel {
         var user = CreateUser();
 
         await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+        var _      = await _userManager.SetEmailAsync(user, Input.Email); //ignore error if set email failed
         var result = await _userManager.CreateAsync(user, Input.Password);
 
         if (result.Succeeded) {

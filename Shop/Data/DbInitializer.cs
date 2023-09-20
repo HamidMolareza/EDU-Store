@@ -25,6 +25,7 @@ public static class DbInitializer {
         var user = await userManager!.FindByNameAsync(userName);
         if (user is null) {
             user = new IdentityUser {
+                Email = userName,
                 UserName       = userName,
                 EmailConfirmed = true
             };

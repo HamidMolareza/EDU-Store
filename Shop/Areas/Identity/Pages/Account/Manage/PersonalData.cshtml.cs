@@ -10,20 +10,22 @@ namespace Shop.Areas.Identity.Pages.Account.Manage;
 public class PersonalDataModel : PageModel {
     private readonly UserManager<IdentityUser> _userManager;
     private readonly ILogger<PersonalDataModel> _logger;
+    private readonly SignInManager<IdentityUser> _signInManager;
 
     public PersonalDataModel(
         UserManager<IdentityUser> userManager,
-        ILogger<PersonalDataModel> logger) {
-        _userManager = userManager;
-        _logger      = logger;
+        ILogger<PersonalDataModel> logger,
+        SignInManager<IdentityUser> signInManager) {
+        _userManager   = userManager;
+        _logger        = logger;
+        _signInManager = signInManager;
     }
 
     public async Task<IActionResult> OnGet() {
         var user = await _userManager.GetUserAsync(User);
-        if (user == null) {
-            return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-        }
+        if (user is not null) return Page();
 
-        return Page();
+        await _signInManager.SignOutAsync();
+        return RedirectToPage();
     }
 }
