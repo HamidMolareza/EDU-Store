@@ -17,6 +17,34 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
+    "WatchDev": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "executablePath": "dotnet",
+      "workingDirectory": "$(ProjectDir)",
+      "hotReloadEnabled": true,
+      "hotReloadProfile": "aspnetcore",
+      "commandLineArgs": "watch run",
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:5038",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "WatchStaging": {
+      "commandName": "Executable",
+      "dotnetRunMessages": true,
+      "executablePath": "dotnet",
+      "workingDirectory": "$(ProjectDir)",
+      "hotReloadEnabled": true,
+      "hotReloadProfile": "aspnetcore",
+      "commandLineArgs": "watch run",
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:5038",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Staging"
+      }
+    },
     "https": {
       "commandName": "Project",
       "dotnetRunMessages": true,
