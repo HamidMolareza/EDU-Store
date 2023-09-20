@@ -26,7 +26,7 @@ public static class StartupExtensions {
         services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
             .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
-        
+
         services.Configure<IdentityOptions>(options => {
             // Password settings.
             options.Password.RequireDigit           = false;
