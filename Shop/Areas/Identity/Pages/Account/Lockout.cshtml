@@ -1,10 +1,12 @@
 ﻿@page
 @model LockoutModel
 @{
-    ViewData["Title"] = "Locked out";
+    ViewData["Title"] = "صفحه قفل شده است";
 }
 
 <header>
-    <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">This account has been locked out, please try again later.</p>
+    <div class="align-items-center container d-flex div_border flex-column gap-3 mt-5 mx-auto my-0 p-3 p-4 rounded-1">
+        <h1 class="text-danger">@ViewData["Title"]</h1>
+        <p class="text-danger">دسترسی به این اکانت محدود شده است. لطفا بعدا دوباره تلاش کنید.</p>
+    </div>
 </header>
