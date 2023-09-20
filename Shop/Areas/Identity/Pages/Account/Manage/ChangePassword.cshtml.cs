@@ -21,11 +21,9 @@ public class ChangePasswordModel : PageModel {
         _logger        = logger;
     }
 
-    [BindProperty]
-    public InputModel Input { get; set; }
+    [BindProperty] public InputModel Input { get; set; }
 
-    [TempData]
-    public string StatusMessage { get; set; }
+    [TempData] public string StatusMessage { get; set; }
 
     public class InputModel {
         [Required(ErrorMessage = "{0} ضروری است.")]
@@ -84,7 +82,7 @@ public class ChangePasswordModel : PageModel {
 
         await _signInManager.RefreshSignInAsync(user);
         _logger.LogInformation("User changed their password successfully");
-        
+
         StatusMessage = "رمز جدید ثبت شد";
         return RedirectToPage();
     }

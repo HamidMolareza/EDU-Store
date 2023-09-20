@@ -18,14 +18,11 @@ public class IndexModel : PageModel {
         _signInManager = signInManager;
     }
 
-    [Display(Name = "نام کاربری")]
-    public string Username { get; set; }
+    [Display(Name = "نام کاربری")] public string Username { get; set; }
 
-    [TempData]
-    public string StatusMessage { get; set; }
+    [TempData] public string StatusMessage { get; set; }
 
-    [BindProperty]
-    public InputModel Input { get; set; }
+    [BindProperty] public InputModel Input { get; set; }
 
     public class InputModel {
         [Phone(ErrorMessage = "{0} درست نیست.")]
