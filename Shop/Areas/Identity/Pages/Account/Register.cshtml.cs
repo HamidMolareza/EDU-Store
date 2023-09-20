@@ -36,7 +36,7 @@ public class RegisterModel : PageModel {
 
         [Required(ErrorMessage = "وارد کردن {0} ضروری است")]
         [StringLength(100, ErrorMessage = "{0} باید حداقل {2} و حداکثر {1} کاراکتر باشد.",
-            MinimumLength = 6)]
+            MinimumLength = 3)]
         [Display(Name = "رمز عبور")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
