@@ -4,7 +4,7 @@
 
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Shop.Areas.Identity.Pages.Account.Manage; 
+namespace Shop.Areas.Identity.Pages.Account.Manage;
 
 /// <summary>
 ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -16,7 +16,7 @@ public static class ManageNavPages {
     public static string Email => "Email";
 
     public static string ChangePassword => "ChangePassword";
-    
+
     public static string DeletePersonalData => "DeletePersonalData";
 
     public static string PersonalData => "PersonalData";
