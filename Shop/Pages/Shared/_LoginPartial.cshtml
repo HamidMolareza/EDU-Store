@@ -1,11 +1,25 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using Shop.Areas.Identity
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User)) {
-        <li class="nav-item">
-            <a asp-area="Identity" asp-page="/Account/Manage/Index" class="nav-link text-dark" title="Manage">سلام @User.Identity?.Name!</a>
+        <li class="align-items-center d-flex nav-item">
+            @if (User.IsInRole(Roles.Admin)) {
+                <div class="dropdown">
+                    <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline-dark btn-sm dropdown-toggle" data-bs-toggle="dropdown" id="dropdownMenuButton" type="button">
+                        @User.Identity?.Name
+                    </button>
+                    <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+                        <a asp-area="Identity" asp-page="/Account/Manage/Index" class="dropdown-item">پروفایل</a>
+                        <a asp-area="Admin" asp-page="/Index" class="dropdown-item">پنل ادمین</a>
+                    </div>
+                </div>
+            }
+            else {
+                <a asp-area="Identity" asp-page="/Account/Manage/Index" class="nav-link text-dark" title="Manage">@User.Identity?.Name</a>
+            }
         </li>
         <li class="nav-item">
             <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" class="form-inline" method="post">

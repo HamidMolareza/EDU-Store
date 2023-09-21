@@ -1,3 +1,4 @@
+using Shop.Areas.Identity;
 using Shop.Data;
 using Shop.Extensions;
 
@@ -8,11 +9,14 @@ builder.Services.AddDatabase(builder.Environment.IsDevelopment(), builder.Config
     .AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddAuthentication();
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options => {
+    options.AddPolicy(Policies.Admin,
+        policy => policy.RequireRole(Roles.Admin));
+});
 
 builder.Services.AddIdentity();
 
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options => { options.Conventions.AuthorizeAreaFolder("Admin", "/", Policies.Admin); });
 
 var app = builder.Build();
 
