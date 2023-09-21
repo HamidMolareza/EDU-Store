@@ -1,3 +1,4 @@
-wwwroot/lib
-wwwroot/fonts
 app.db
+wwwroot
+!wwwroot/css
+!wwwroot/js
