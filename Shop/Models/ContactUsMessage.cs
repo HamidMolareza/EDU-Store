@@ -14,6 +14,5 @@ public class ContactUsMessage {
 
     public string? Title { get; set; }
 
-    [MinLength(10)]
-    public string Message { get; set; } = default!;
+    [MinLength(10)] public string Message { get; set; } = default!;
 }
