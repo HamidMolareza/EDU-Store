@@ -7,16 +7,18 @@
     }
 }
 
-<h1>مدیریت اکانت</h1>
-
-<div>
-    <hr/>
-    <div class="row">
-        <div class="col-md-3">
-            <partial name="_ManageNav"/>
-        </div>
-        <div class="col-md-9">
-            @RenderBody()
+<div class="div_border container p-4" style="min-height: 500px">
+    <h1>مدیریت اکانت</h1>
+    
+    <div>
+        <hr/>
+        <div class="row">
+            <div class="col-md-3">
+                <partial name="_ManageNav"/>
+            </div>
+            <div class="col-md-9 px-4">
+                @RenderBody()
+            </div>
         </div>
     </div>
 </div>
