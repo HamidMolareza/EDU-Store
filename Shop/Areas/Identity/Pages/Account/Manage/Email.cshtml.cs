@@ -18,8 +18,7 @@ public class EmailModel : PageModel {
         _signInManager = signInManager;
     }
 
-    [Display(Name = "ایمیل")]
-    public string Email { get; set; }
+    [Display(Name = "ایمیل")] public string Email { get; set; }
 
     [TempData] public string StatusMessage { get; set; }
 

@@ -21,7 +21,7 @@ public class LogoutModel : PageModel {
         if (returnUrl != null) {
             return LocalRedirect(returnUrl);
         }
-        
+
         return RedirectToPage("/Index");
     }
 }

@@ -7,4 +7,3 @@ public static class Roles {
 public static class Policies {
     public const string Admin = Roles.Admin;
 }
-
