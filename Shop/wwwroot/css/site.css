@@ -20,6 +20,13 @@ html {
 }
 
 body {
-    margin-bottom: 60px;
     font-family: 'Vazir', sans-serif !important;
+}
+
+@media (max-width: 768px) {
+    .table-mobile-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
 }

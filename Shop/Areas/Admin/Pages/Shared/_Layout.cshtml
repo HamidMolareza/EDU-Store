@@ -5,16 +5,60 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>@ViewData["Title"] - پنل مدیریت</title>
     <link href="~/lib/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/lib/sidebar/style.css" rel="stylesheet"/>
     <link asp-append-version="true" href="~/css/site.css" rel="stylesheet"/>
     <link asp-append-version="true" href="~/Shop.styles.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body>
-@RenderBody()
+<div class="align-items-stretch d-flex wrapper">
+    <nav id="sidebar">
+        <div class="custom-menu">
+            <button class="btn btn-primary" id="sidebarCollapse" type="button">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu</span>
+            </button>
+        </div>
+        <div class="p-4">
+            <h1>
+                <a class="logo" href="#">Portfolic <span>Portfolio Agency</span></a>
+            </h1>
+            <ul class="components list-unstyled mb-5">
+                <li class="active">
+                    <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-user mr-3"></span> About</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-briefcase mr-3"></span> Works</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-sticky-note mr-3"></span> Blog</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-suitcase mr-3"></span> Gallery</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-cogs mr-3"></span> Services</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-paper-plane mr-3"></span> Contacts</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div class="p-4 p-md-5 pt-5" id="content">
+        @RenderBody()
+    </div>
+</div>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="~/lib/popper/popper.min.js"></script>
+<script src="~/lib/sidebar/main.js"></script>
 <script asp-append-version="true" src="~/js/site.js"></script>
 
 @await RenderSectionAsync("Scripts", required: false)
