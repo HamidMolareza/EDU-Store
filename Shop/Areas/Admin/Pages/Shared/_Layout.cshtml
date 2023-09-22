@@ -5,45 +5,49 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>@ViewData["Title"] - پنل مدیریت</title>
     <link href="~/lib/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="~/lib/sidebar/style.css" rel="stylesheet"/>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link asp-append-version="true" href="~/css/site.css" rel="stylesheet"/>
     <link asp-append-version="true" href="~/Shop.styles.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="align-items-stretch d-flex wrapper">
-    <nav id="sidebar" class="bg-dark">
+    <nav class="bg-dark" id="sidebar">
         <div class="custom-menu">
-            <button class="btn btn-primary" id="sidebarCollapse" type="button">
+            <button class="btn-sidebar btn-sidebar-primary" id="sidebarCollapse" type="button">
                 <i class="fa fa-bars"></i>
                 <span class="sr-only">Toggle Menu</span>
             </button>
         </div>
         <div class="p-4">
-            <h1>
-                <a class="logo" href="#">Portfolic <span>Portfolio Agency</span></a>
-            </h1>
+            <div class="d-flex flex-column gap-2 text-center">
+                <a asp-page="/Index" class="text-white" style="font-size: 1.1rem">
+                    پنل مدیریت
+                </a>
+                <span class="text-white user-select-none">@User.Identity?.Name</span>
+            </div>
+            <hr class="bg-white"/>
             <ul class="components list-unstyled mb-5">
                 <li class="active">
-                    <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
+                    <a asp-area="" asp-page="/Index"><span class="fa fa-home mr-3 text-white"></span> صفحه اصلی سایت</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-user mr-3"></span> About</a>
+                    <a asp-page="/ContactUs/Index"><span class="fa fa-commenting mr-3 text-white"></span> پیام‌ها</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-briefcase mr-3"></span> Works</a>
+                    <a href="#"><span class="fa fa-briefcase mr-3 text-white"></span> Works</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-sticky-note mr-3"></span> Blog</a>
+                    <a href="#"><span class="fa fa-sticky-note mr-3 text-white"></span> Blog</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-suitcase mr-3"></span> Gallery</a>
+                    <a href="#"><span class="fa fa-suitcase mr-3 text-white"></span> Gallery</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-cogs mr-3"></span> Services</a>
+                    <a href="#"><span class="fa fa-cogs mr-3 text-white"></span> Services</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-paper-plane mr-3"></span> Contacts</a>
+                    <a href="#"><span class="fa fa-paper-plane mr-3 text-white"></span> Contacts</a>
                 </li>
             </ul>
         </div>
