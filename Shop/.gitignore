@@ -2,3 +2,4 @@ app.db
 wwwroot
 !wwwroot/css
 !wwwroot/js
+!wwwroot/lib/sidebar
