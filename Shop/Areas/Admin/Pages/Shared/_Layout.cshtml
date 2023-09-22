@@ -24,30 +24,25 @@
                 <a asp-page="/Index" class="text-white" style="font-size: 1.1rem">
                     پنل مدیریت
                 </a>
-                <span class="text-white user-select-none">@User.Identity?.Name</span>
+                <span class="text-white user-select-none">@User.Identity!.Name</span>
+
             </div>
             <hr class="bg-white"/>
             <ul class="components list-unstyled mb-5">
-                <li class="active">
-                    <a asp-area="" asp-page="/Index"><span class="fa fa-home mr-3 text-white"></span> صفحه اصلی سایت</a>
+                <li>
+                    <a asp-page="/Index"><span class="fa fa-tachometer mr-3 text-white"></span> داشبورد</a>
                 </li>
                 <li>
                     <a asp-page="/ContactUs/Index"><span class="fa fa-commenting mr-3 text-white"></span> پیام‌ها</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-briefcase mr-3 text-white"></span> Works</a>
+                    <a asp-area="Identity" asp-page="/Account/Manage/Index"><span class="fa fa-user mr-3 text-white"></span> پروفایل</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-sticky-note mr-3 text-white"></span> Blog</a>
+                    <a asp-area="" asp-page="/Index"><span class="fa fa-home mr-3 text-white"></span> صفحه اصلی سایت</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-suitcase mr-3 text-white"></span> Gallery</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa fa-cogs mr-3 text-white"></span> Services</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa fa-paper-plane mr-3 text-white"></span> Contacts</a>
+                    <a asp-area="Identity" asp-page="/Account/Logout"><span class="fa fa-sign-out mr-3 text-white"></span> خروج</a>
                 </li>
             </ul>
         </div>
