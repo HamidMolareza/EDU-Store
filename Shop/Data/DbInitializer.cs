@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Shop.Areas.Identity;
+using Shop.Models;
 
 namespace Shop.Data;
 
@@ -11,6 +12,7 @@ public static class DbInitializer {
                 DbContextOptions<ApplicationDbContext>>());
 
         await InitUsersAsync(serviceProvider);
+        await context.InitContactUsMessages();
     }
 
     private static async Task InitUsersAsync(IServiceProvider serviceProvider) {
@@ -57,5 +59,78 @@ public static class DbInitializer {
 
         var identityResult = await userManager.AddToRoleAsync(user, role);
         return identityResult;
+    }
+
+    private static async Task InitContactUsMessages(this ApplicationDbContext context) {
+        if (context.Messages.Any()) {
+            return;
+        }
+
+        context.Messages.AddRange(
+            new ContactUsMessage {
+                Name    = "محمد حسینی",
+                Email   = "mohsen@example.com",
+                Title   = "پیشنهادات بهبودی",
+                Message = "سلام، من چند پیشنهاد برای بهبود سایت دارم. آیا می‌توانم با شما در مورد آنها صحبت کنم؟"
+            },
+            new ContactUsMessage {
+                Name  = "سارا اکبری",
+                Email = "sara@example.com",
+                Title = "اطلاعات بیشتر",
+                Message =
+                    "سلام، می‌خواستم بیشتر در مورد محصولات شما و قیمت‌هاشان اطلاعات بگیرم. آیا می‌توانید راهنمایی کنید؟"
+            },
+            new ContactUsMessage {
+                Name    = "علی رضایی",
+                Email   = "ali@example.com",
+                Title   = "مشکل در ورود به حساب کاربری",
+                Message = "سلام، من نمی‌توانم به حساب کاربری‌ام وارد شوم. آیا می‌توانید کمک کنید؟"
+            },
+            new ContactUsMessage {
+                Name    = "نگین میرزایی",
+                Email   = "negin@example.com",
+                Title   = "پیشنهاد همکاری",
+                Message = "سلام، من علاقه دارم با شما همکاری کنم. آیا می‌توانیم در مورد این موضوع صحبت کنیم؟"
+            },
+            new ContactUsMessage {
+                Name  = "رضا خوشنام",
+                Email = "reza@example.com",
+                Title = "نظر در مورد محصول جدید",
+                Message =
+                    "سلام، محصول جدید شما بسیار جذاب به نظر می‌آید. من نظرات خود را در مورد آن به اشتراک می‌گذارم."
+            },
+            new ContactUsMessage {
+                Name    = "پریسا کاظمی",
+                Email   = "parisa@example.com",
+                Title   = "اشتراک خبرنامه",
+                Message = "سلام، آیا می‌توانید من را در اشتراک خبرنامه خود قرار دهید؟"
+            },
+            new ContactUsMessage {
+                Name    = "مهدی محمودی",
+                Email   = "mehdi@example.com",
+                Title   = "اشکال در پرداخت",
+                Message = "سلام، من در هنگام پرداخت با مشکل مواجه شدم. لطفاً راهنمایی کنید."
+            },
+            new ContactUsMessage {
+                Name    = "فاطمه صادقی",
+                Email   = "fatemeh@example.com",
+                Title   = "تقدیر و تشکر",
+                Message = "سلام، من از خدمات شما بسیار راضی هستم. ممنون از تلاش‌های شما."
+            },
+            new ContactUsMessage {
+                Name    = "محمدعلی رحیمی",
+                Email   = "mohamadali@example.com",
+                Title   = "سوال در مورد API",
+                Message = "سلام، من سوالی در مورد استفاده از API شما دارم. آیا می‌توانید راهنمایی کنید؟"
+            },
+            new ContactUsMessage {
+                Name  = "زهرا میری",
+                Email = "zahra@example.com",
+                Title = "انتقادات و پیشنهادات",
+                Message =
+                    "سلام، من چند انتقاد و پیشنهاد دارم که فکر می‌کنم می‌توانند به بهبود کیفیت خدمات شما کمک کنند."
+            }
+        );
+        await context.SaveChangesAsync();
     }
 }
