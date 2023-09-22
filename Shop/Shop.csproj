@@ -13,129 +13,68 @@
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.11" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.11" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.11">
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-          <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.11" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.11" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.11" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.11">
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-          <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.10" />
     </ItemGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\Home\Privacy.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\Shared\Error.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\Shared\_LoginPartial.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Black.eot" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Black.ttf" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Black.woff" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Black.woff2" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Bold.eot" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Bold.ttf" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Bold.woff" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Bold.woff2" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Light.eot" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Light.ttf" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Light.woff" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Light.woff2" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Medium.eot" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Medium.ttf" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Medium.woff" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Medium.woff2" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Thin.eot" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Thin.ttf" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Thin.woff" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir-Thin.woff2" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir.eot" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir.ttf" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir.woff" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\Vazir.woff2" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\AdminLTELogo.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\avatar.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\avatar04.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\avatar2.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\avatar3.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\avatar5.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\boxed-bg.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\boxed-bg.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\credit\american-express.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\credit\cirrus.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\credit\mastercard.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\credit\mestro.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\credit\paypal.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\credit\paypal2.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\credit\visa.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\default-150x150.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\icons.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\photo1.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\photo2.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\photo3.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\photo4.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\user1-128x128.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\user2-160x160.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\user3-128x128.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\user4-128x128.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\user5-128x128.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\user6-128x128.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\user7-128x128.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\img\user8-128x128.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\css\bootstrap-grid.css" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\css\bootstrap-grid.css.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\css\bootstrap-grid.min.css" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\css\bootstrap-grid.min.css.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\css\bootstrap-reboot.css" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\css\bootstrap-reboot.css.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\css\bootstrap-reboot.min.css" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\css\bootstrap-reboot.min.css.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\css\bootstrap.css" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\css\bootstrap.css.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\css\bootstrap.min.css" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\css\bootstrap.min.css.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\js\bootstrap.bundle.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\js\bootstrap.bundle.js.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\js\bootstrap.bundle.min.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\js\bootstrap.bundle.min.js.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\js\bootstrap.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\js\bootstrap.js.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\js\bootstrap.min.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\bootstrap\js\bootstrap.min.js.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\esm\popper-utils.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\esm\popper-utils.js.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\esm\popper-utils.min.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\esm\popper-utils.min.js.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\esm\popper.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\esm\popper.js.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\esm\popper.min.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\esm\popper.min.js.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\popper-utils.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\popper-utils.js.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\popper-utils.min.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\popper-utils.min.js.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\popper.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\popper.js.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\popper.min.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\popper.min.js.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\umd\popper-utils.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\umd\popper-utils.js.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\umd\popper-utils.min.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\umd\popper-utils.min.js.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\umd\popper.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\umd\popper.js.map" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\umd\popper.min.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\dist\js\plugins\popper\umd\popper.min.js.map" />
+        <Folder Include="Areas\Admin\Pages\ContactUs\" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Areas\Admin\Pages\ContactUs\" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-grid.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-grid.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-grid.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-grid.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-grid.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-grid.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-grid.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-grid.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-reboot.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-reboot.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-reboot.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-reboot.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-reboot.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-reboot.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-reboot.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-reboot.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-utilities.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-utilities.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-utilities.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-utilities.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-utilities.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-utilities.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-utilities.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap-utilities.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\js\bootstrap.bundle.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\js\bootstrap.bundle.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\js\bootstrap.bundle.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\js\bootstrap.bundle.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\js\bootstrap.esm.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\js\bootstrap.esm.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\js\bootstrap.esm.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\js\bootstrap.esm.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\js\bootstrap.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\js\bootstrap.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\js\bootstrap.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\js\bootstrap.min.js.map" />
     </ItemGroup>
 
 </Project>
