@@ -5,33 +5,35 @@
     ViewData["Title"] = "تماس با ما";
 }
 
-<div class="div_border m-auto p-4" style="max-width: 700px">
-    <h2 class="text-center">@ViewData["Title"]</h2>
-    <form class="d-flex flex-column gap-3" method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="Input.Name" class="control-label"></label>
-            <input asp-for="Input.Name" class="form-control"/>
-            <span asp-validation-for="Input.Name" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Input.Email" class="control-label"></label>
-            <input asp-for="Input.Email" class="form-control"/>
-            <span asp-validation-for="Input.Email" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Input.Title" class="control-label"></label>
-            <input asp-for="Input.Title" class="form-control"/>
-            <span asp-validation-for="Input.Title" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Input.Message" class="control-label"></label>
-            @Html.TextAreaFor(model => model.Input.Message, new { @class = "form-control", @rows = 4 })
-            @* <input asp-for="Input.Message" class="form-control" type=""/> *@
-            <span asp-validation-for="Input.Message" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <input class="btn btn-primary" type="submit" value="ارسال پیام"/>
-        </div>
-    </form>
+<div class="card m-auto" style="max-width: 600px">
+    <h5 class="bg-primary card-header text-center text-white">@ViewData["Title"]</h5>
+    <div class="card-body">
+        <form class="d-flex flex-column gap-3" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.Name" class="control-label"></label>
+                <input asp-for="Input.Name" class="form-control"/>
+                <span asp-validation-for="Input.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Email" class="control-label"></label>
+                <input asp-for="Input.Email" class="form-control"/>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Title" class="control-label"></label>
+                <input asp-for="Input.Title" class="form-control"/>
+                <span asp-validation-for="Input.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Message" class="control-label"></label>
+                @Html.TextAreaFor(model => model.Input.Message, new { @class = "form-control", @rows = 4 })
+                @* <input asp-for="Input.Message" class="form-control" type=""/> *@
+                <span asp-validation-for="Input.Message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="ارسال پیام"/>
+            </div>
+        </form>
+    </div>
 </div>

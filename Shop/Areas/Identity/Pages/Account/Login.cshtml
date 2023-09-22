@@ -5,11 +5,12 @@
     ViewData["Title"] = "ورود";
 }
 
-<div class="align-items-center d-flex flex-column mt-4">
-    <div class="div_border mx-auto my-0 p-4 rounded-1" style="width: 450px">
+<div class="card m-auto" style="max-width: 550px">
+    <div class="card-header text-center" style="font-size: 1.4rem">
+        ورود
+    </div>
+    <div class="card-body p-5">
         <form id="account" method="post">
-            <h2 class="text-center">ورود</h2>
-            <hr/>
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="form-floating mb-3">
                 <input aria-required="true" asp-for="Input.Email" autocomplete="نام کاربری" class="form-control" placeholder="name@example.com"/>
@@ -34,10 +35,21 @@
             <button class="btn btn-lg btn-primary w-100" id="login-submit" type="submit">ورود</button>
         </form>
     </div>
-    <div class="mt-3">
-        هنوز ثبت‌نام نکردین؟ <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-decoration-none">ثبت‌نام</a>
-    </div>
 </div>
+
+<div class="mt-3 text-center">
+    هنوز ثبت‌نام نکردین؟ <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-decoration-none">ثبت‌نام</a>
+</div>
+
+
+@* <div class="align-items-center d-flex flex-column mt-4"> *@
+@*     <div class="div_border mx-auto my-0 p-4 rounded-1" style="width: 450px"> *@
+@*          *@
+@*     </div> *@
+@*     <div class="mt-3"> *@
+@*    *@
+@*     </div> *@
+@* </div> *@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial"/>
