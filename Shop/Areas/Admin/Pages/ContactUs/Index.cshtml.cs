@@ -13,6 +13,7 @@ public class IndexModel : PaginationModel<IndexModel.MessageModel> {
     public IndexModel(ApplicationDbContext context) {
         _context = context;
     }
+
     public class MessageModel {
         [Display(Name = "آی‌دی")] public int Id { get; set; }
         [Display(Name = "نام")] public string? Name { get; set; }
