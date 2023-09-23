@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Shop.Data;
 
 namespace Shop.Areas.Admin.Pages.Members;
 
@@ -34,6 +34,10 @@ public class DeleteModel : PageModel {
         if (user is null)
             return NotFound();
 
+        var currentUserId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (currentUserId == user.Id)
+            return Forbid(); // Users can not remove themselves.
+
         var roles = await _userManager.GetRolesAsync(user);
 
         UserModel = new User {
@@ -54,6 +58,10 @@ public class DeleteModel : PageModel {
         var user = await _userManager.FindByIdAsync(id);
         if (user is null)
             return NotFound();
+        
+        var currentUserId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (currentUserId == user.Id)
+            return Forbid(); // Users can not remove themselves.
 
         await _userManager.DeleteAsync(user);
         return RedirectToPage("./Index");
