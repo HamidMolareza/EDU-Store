@@ -3,3 +3,4 @@ wwwroot
 !wwwroot/css
 !wwwroot/js
 !wwwroot/lib/sidebar
+!wwwroot/img
