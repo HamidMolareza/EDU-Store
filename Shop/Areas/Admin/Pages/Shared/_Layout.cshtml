@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>@ViewData["Title"] - پنل مدیریت</title>
     <link href="~/lib/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet"/>
-    <link href="~/lib/sidebar/style.css" rel="stylesheet"/>
+    <link asp-append-version="true" href="~/lib/sidebar/style.css" rel="stylesheet"/>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link asp-append-version="true" href="~/css/site.css" rel="stylesheet"/>
     <link asp-append-version="true" href="~/Shop.styles.css" rel="stylesheet"/>
@@ -29,7 +29,7 @@
 
             </div>
             <hr class="bg-white"/>
-            <ul class="components list-unstyled mb-5">
+            <ul class="components list-unstyled mb-5 sidebar-items">
                 <li>
                     <a asp-page="/Index"><span class="fa fa-tachometer mr-3 text-white"></span> داشبورد</a>
                 </li>
@@ -62,7 +62,7 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="~/lib/popper/popper.min.js"></script>
-<script src="~/lib/sidebar/main.js"></script>
+<script asp-append-version="true" src="~/lib/sidebar/main.js"></script>
 <script asp-append-version="true" src="~/js/site.js"></script>
 
 @await RenderSectionAsync("Scripts", required: false)

@@ -5,15 +5,18 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>@ViewData["Title"] - فروشگاه</title>
     <link href="~/lib/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet"/>
+    <link asp-append-version="true" href="~/lib/sidebar/style.css" rel="stylesheet"/>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link asp-append-version="true" href="~/css/site.css" rel="stylesheet"/>
     <link asp-append-version="true" href="~/Shop.styles.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
 <header>
-    <nav class="bg-white border-bottom box-shadow mb-3 navbar navbar-expand-sm navbar-light navbar-toggleable-sm">
+    <nav class="bg-white border-bottom box-shadow navbar navbar-expand-sm navbar-light navbar-toggleable-sm">
         <div class="container-fluid">
-            <a asp-area="" asp-page="/Index" class="navbar-brand" style="margin-right: 16px; margin-left: 8px">
-                <img src="~/img/logo.png" alt="logo" style="width: 35px; height: 35px;"/>
+            <a asp-area="" asp-page="/Index" class="navbar-brand" style="margin-right: 16px; margin-left: 12px">
+                <img alt="logo" src="~/img/logo.png" style="width: 35px; height: 35px;"/>
             </a>
             <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target=".navbar-collapse"
                     data-bs-toggle="collapse" type="button">
@@ -36,11 +39,9 @@
         </div>
     </nav>
 </header>
-<div class="container">
-    <main class="pb-3" role="main" style="margin-bottom: 60px !important;">
-        @RenderBody()
-    </main>
-</div>
+<main role="main" style="margin-bottom: 90px !important;">
+    @RenderBody()
+</main>
 
 <footer class="border-top footer text-muted">
     <div class="container">
@@ -51,6 +52,7 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="~/lib/popper/popper.min.js"></script>
+<script asp-append-version="true" src="~/lib/sidebar/main.js"></script>
 <script asp-append-version="true" src="~/js/site.js"></script>
 
 @await RenderSectionAsync("Scripts", required: false)

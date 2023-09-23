@@ -1041,3 +1041,12 @@ a[data-toggle="collapse"] {
 .subscribe-form .form-control {
     background: #3b4ec6;
 }
+
+.btn-sidebar:hover, button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+ul.sidebar-items li > a > span, ul.sidebar-items li > a > i {
+    margin-left: 8px;
+}

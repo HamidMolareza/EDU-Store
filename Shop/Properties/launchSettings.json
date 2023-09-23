@@ -19,7 +19,7 @@
     },
     "WatchDev": {
       "commandName": "Executable",
-      "dotnetRunMessages": true,
+      "dotnetRunMessages": false,
       "executablePath": "dotnet",
       "workingDirectory": "$(ProjectDir)",
       "hotReloadEnabled": true,

@@ -5,7 +5,7 @@
     ViewData["Title"] = "تماس با ما";
 }
 
-<div class="card m-auto" style="max-width: 600px">
+<div class="card m-auto mt-3" style="max-width: 600px">
     <h5 class="bg-primary card-header py-3 text-center text-white">@ViewData["Title"]</h5>
     <div class="card-body">
         <form class="d-flex flex-column gap-3" method="post">
@@ -28,7 +28,6 @@
             <div class="form-group">
                 <label asp-for="Input.Message" class="control-label"></label>
                 @Html.TextAreaFor(model => model.Input.Message, new { @class = "form-control", @rows = 4 })
-                @* <input asp-for="Input.Message" class="form-control" type=""/> *@
                 <span asp-validation-for="Input.Message" class="text-danger"></span>
             </div>
             <div class="form-group">
