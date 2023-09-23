@@ -7,21 +7,62 @@
     }
 }
 
-<div class="container div_border p-4" style="min-height: 500px">
-    <h1>مدیریت اکانت</h1>
-
-    <div>
-        <hr/>
-        <div class="row">
-            <div class="col-md-3">
-                <partial name="_ManageNav"/>
-            </div>
-            <div class="col-md-9 px-4">
-                @RenderBody()
-            </div>
+<div class="align-items-stretch d-flex wrapper">
+    <nav class="bg-dark" id="sidebar">
+        <div class="custom-menu">
+            <button class="btn-sidebar btn-sidebar-primary" id="sidebarCollapse" type="button">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu</span>
+            </button>
         </div>
+        <div class="p-4">
+            <div class="d-flex flex-column gap-2 text-center">
+                <a asp-page="/Account/Manage/Index" class="text-white" style="font-size: 1.1rem">
+                    مدیریت پروفایل
+                </a>
+                <span class="text-white user-select-none">@User.Identity!.Name</span>
+
+            </div>
+            <hr class="bg-white"/>
+            <ul class="components list-unstyled mb-5 sidebar-items">
+                <li>
+                    <a asp-page="/Account/Manage/Index"><span class="fa fa-tachometer mr-3 text-white"></span> داشبورد</a>
+                </li>
+                <li>
+                    <a asp-page="/Account/Manage/Email"><i class="bi bi-envelope-fill mr-3 text-white"></i> ایمیل</a>
+                </li>
+                <li>
+                    <a asp-page="/Account/Manage/ChangePassword"><i class="bi bi-shield-lock-fill mr-3 text-white"></i> رمز عبور</a>
+
+                </li>
+                <li>
+                    <a asp-page="/Account/Manage/PersonalData"><span class="fa fa-user mr-3 text-white"></span> اطلاعات شخصی</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div class="p-4 p-md-5 pt-5" id="content">
+        @RenderBody()
     </div>
 </div>
+
+
+@* <div class="container div_border p-4" style="min-height: 500px"> *@
+@*     <h1>مدیریت اکانت</h1> *@
+@* *@
+@*     <div> *@
+@*         <hr/> *@
+@*         <div class="row"> *@
+@*             <div class="col-md-3"> *@
+@*             </div> *@
+@*             <div class="col-md-9 px-4"> *@
+@*                 @RenderBody() *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@
 
 @section Scripts {
     @RenderSection("Scripts", required: false)

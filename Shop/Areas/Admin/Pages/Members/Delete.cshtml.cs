@@ -58,7 +58,7 @@ public class DeleteModel : PageModel {
         var user = await _userManager.FindByIdAsync(id);
         if (user is null)
             return NotFound();
-        
+
         var currentUserId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
         if (currentUserId == user.Id)
             return Forbid(); // Users can not remove themselves.
