@@ -1,0 +1,65 @@
+@page
+@model Shop.Areas.Admin.Pages.Members.DetailsModel
+
+@{
+    ViewData["Title"] = "اطلاعات کاربر";
+}
+
+<div class="card m-auto mb-3" style="max-width: 750px">
+    <div class="bg-primary card-header text-center text-white" style="font-size: 1.3rem">
+        @ViewData["Title"]
+    </div>
+    <div class="card-body p-4">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UserModel.Id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UserModel.Id)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UserModel.Username)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UserModel.Username)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UserModel.Roles)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UserModel.Roles)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UserModel.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UserModel.Email)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UserModel.Phone)
+            </dt>
+            <dd class="col-sm-10">
+                @if (Model.UserModel.Phone is null) {
+                    <span>ندارد</span>
+                }
+                else {
+                    @Html.DisplayFor(model => model.UserModel.Phone)
+                }
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UserModel.IsLockout)
+            </dt>
+            <dd class="col-sm-10">
+                @if (Model.UserModel.IsLockout) {
+                    <span class="text-danger">بله</span>
+                }
+                else {
+                    <span>خیر</span>
+                }
+            </dd>
+        </dl>
+        <div>
+            <a asp-page="./Index">بازگشت به لیست</a>
+        </div>
+    </div>
+</div>

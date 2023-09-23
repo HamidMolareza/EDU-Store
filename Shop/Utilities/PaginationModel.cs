@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace Shop.Utility;
+namespace Shop.Utilities;
 
 public class PaginationModel<T> : PageModel {
     public int PageIndex { get; set; }

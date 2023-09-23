@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Shop.Data;
 using Shop.Models;
-using Shop.Utility;
+using Shop.Utilities;
 
 namespace Shop.Areas.Admin.Pages.ContactUs;
 

@@ -18,6 +18,8 @@ public static class DbInitializer {
     private static async Task InitUsersAsync(IServiceProvider serviceProvider) {
         var adminId = await EnsureUser(serviceProvider, "admin@shop.com", "admin@shop.com");
         await EnsureRole(serviceProvider, adminId, Roles.Admin);
+
+        await EnsureUser(serviceProvider, "user@user.com", "user@user.com");
     }
 
     private static async Task<string> EnsureUser(IServiceProvider serviceProvider,

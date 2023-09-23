@@ -28,6 +28,7 @@
 
     <ItemGroup>
         <Folder Include="Areas\Admin\Pages\ContactUs\" />
+        <Folder Include="Areas\Admin\Pages\Members\" />
     </ItemGroup>
 
 </Project>
