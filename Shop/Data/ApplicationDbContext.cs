@@ -16,7 +16,7 @@ public class ApplicationDbContext : IdentityDbContext {
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
         base.OnModelCreating(modelBuilder);
-        
+
         modelBuilder.Entity<ProductCategory>()
             .HasKey(productCategory => new { productCategory.CategoryId, productCategory.ProductId });
         // modelBuilder.Entity<ProductCategory>()
