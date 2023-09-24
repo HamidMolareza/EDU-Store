@@ -32,18 +32,19 @@
     </div>
 
     <div class="card mb-3 text-bg-secondary" style="max-width: 18rem; min-width: 260px">
-        <div class="card-header" style="font-size: 1.2rem">تعداد پیام‌ها</div>
+        <div class="card-header" style="font-size: 1.2rem">تعداد دسته‌ها</div>
         <div class="card-body position-relative py-3">
-            <i class="bi bi-chat-left-text opacity-50 position-absolute" style="top: 8px;left: 20px;font-size: 70px"></i>
-            <span class="position-relative" style="font-size: 2.5rem;top: 4px;right: -34px;">@Model.InfoModel.NumOfMessages</span>
+            <i class="bi bi-bookmarks-fill opacity-50 position-absolute" style="top: 8px;left: 20px;font-size: 60px"></i>
+            <span class="position-relative" style="font-size: 2.5rem;top: 4px;right: -34px;">@Model.InfoModel.NumOfCategories</span>
         </div>
-        <a asp-page="./ContactUs/Index" class="btn btn-lg rounded-0 text-white" style="font-size: 1rem; background-color: #484f55">
+        <a asp-page="./Categories/Index" class="btn btn-lg rounded-0 text-white" style="font-size: 1rem; background-color: #484f55">
             <div class="d-flex flex-row gap-2 justify-content-center">
-                دیدن پیام‌ها
+                مدیریت دسته‌بندی‌ها
                 <i class="bi bi-arrow-left-circle-fill" style="font-size: 16px; padding-top: 2px"></i>
             </div>
         </a>
     </div>
+
     <div class="card mb-3 text-bg-success" style="max-width: 18rem; min-width: 260px">
         <div class="card-header" style="font-size: 1.2rem">تعداد پیام‌ها</div>
         <div class="card-body position-relative py-3">

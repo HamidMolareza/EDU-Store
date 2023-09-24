@@ -1,0 +1,39 @@
+@page
+@model Shop.Areas.Admin.Pages.Categories.IndexModel
+
+@{
+    ViewData["Title"] = "دسته‌بندی‌ها";
+}
+
+
+<div class="card mt-3">
+    <div class="card-header text-center" style="font-size: 1.1rem">@ViewData["Title"]</div>
+    <div class="card-body">
+        <p>
+            <a asp-page="Create">ایجاد دسته جدید</a>
+        </p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category[0].Name)
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Category) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">ویرایش</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id" class="text-danger">حذف</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
