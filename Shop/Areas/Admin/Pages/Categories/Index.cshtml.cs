@@ -22,6 +22,7 @@ public class IndexModel : PageModel {
 
     public async Task OnGetAsync() {
         Category = await _context.Categories.AsNoTracking()
+                       .OrderByDescending(category => category.Id)
                        .Select(item => new CategoryModel {
                            Id   = item.Id,
                            Name = item.Name
