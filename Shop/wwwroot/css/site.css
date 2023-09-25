@@ -106,3 +106,17 @@ td {
         font-size: 0.875rem !important;
     }
 }
+
+.carousel img {
+    filter: brightness(50%);
+    box-shadow: unset;
+    border-radius: unset;
+}
+
+.carousel-inner {
+    max-height: calc(100vh - 65px);
+}
+
+.carousel-item{
+    position: unset;
+}

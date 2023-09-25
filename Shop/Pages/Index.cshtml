@@ -4,7 +4,58 @@
     ViewData["Title"] = "صفحه اصلی";
 }
 
-<div class="text-center">
-    <h1 class="display-4">خوش اومدین</h1>
-    <p>ساخته شده به وسیله ASP Core</p>
+<div class="carousel carousel-fade slide" data-bs-ride="carousel" id="slideshow">
+    <div class="carousel-indicators">
+        <button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0" data-bs-target="#slideshow" type="button"></button>
+        <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#slideshow" type="button"></button>
+        <button aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#slideshow" type="button"></button>
+        <button aria-label="Slide 4" data-bs-slide-to="3" data-bs-target="#slideshow" type="button"></button>
+        <button aria-label="Slide 5" data-bs-slide-to="4" data-bs-target="#slideshow" type="button"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="active carousel-item" data-bs-interval="5000">
+            <img alt="..." class="d-block w-100" src="/img/slideshow/image1.jpg">
+            <div class="carousel-caption d-md-block d-none">
+                <h5>سفر شما از اینجا شروع می‌شود</h5>
+                <p>با ما سفری سر سبز و پر از امکانات شروع کنید</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img alt="..." class="d-block w-100" src="/img/slideshow/image2.jpg">
+            <div class="carousel-caption d-md-block d-none">
+                <h5>باغ‌های آینده</h5>
+                <p>باغ‌های خوب با بذرهای خوب ساخته می‌شوند</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img alt="..." class="d-block w-100" src="/img/slideshow/image3.jpg">
+            <div class="carousel-caption d-md-block d-none">
+                <h5>عشق به زیبایی طبیعت</h5>
+                <p>کشاورزی، هنری است که باعث حفظ زیبایی و ثروت‌های طبیعت می‌شود</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img alt="..." class="d-block w-100" src="/img/slideshow/image4.jpg">
+            <div class="carousel-caption d-md-block d-none">
+                <h5>از خاک تا میز غذا</h5>
+                <p>سفری از زمین‌های کشاورزی تا محصولات خوشمزه برای شما</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img alt="..." class="d-block w-100" src="/img/slideshow/image5.jpg">
+            <div class="carousel-caption d-md-block d-none">
+                <h5>ما یک خانواده هستیم</h5>
+                <p>به جامعه در حال توسعه ما بپیوندید</p>
+            </div>
+        </div>
+
+    </div>
+    <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#slideshow" type="button">
+        <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#slideshow" type="button">
+        <span aria-hidden="true" class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
