@@ -24,7 +24,6 @@ public class IndexModel : PaginationModel<IndexModel.ProductModel> {
         public decimal Price { get; set; }
 
         [Display(Name = "تعداد")] public int StockQuantity { get; set; }
-        [Display(Name = "ویژه؟")] public bool IsFeatured { get; set; }
     }
 
     public async Task OnGetAsync(int? p, int? limit) {
@@ -38,8 +37,7 @@ public class IndexModel : PaginationModel<IndexModel.ProductModel> {
                 Name          = item.Name,
                 Categories    = string.Join(", ", item.ProductCategories.Select(pc => pc.Category.Name)),
                 Price         = item.Price,
-                StockQuantity = item.StockQuantity,
-                IsFeatured    = item.IsFeatured
+                StockQuantity = item.StockQuantity
             });
         await LoadItemsAsync(query, p, limit ?? 5);
     }

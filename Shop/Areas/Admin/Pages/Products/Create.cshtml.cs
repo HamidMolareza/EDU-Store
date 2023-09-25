@@ -43,9 +43,6 @@ public class CreateModel : PageModel {
         [Required(ErrorMessage = "{0} ضروری است.")]
         public int? StockQuantity { get; set; }
 
-        [Display(Name = "اضافه کردن به لیست ویژه‌؟")]
-        public bool IsFeatured { get; set; }
-
         [Display(Name = "وزن محصول (کیلوگرم)")]
         [Range(0, double.MaxValue, ErrorMessage = "{0} باید بین {1} تا {2} باشد.")]
         [Required(ErrorMessage = "{0} ضروری است.")]
@@ -115,7 +112,6 @@ public class CreateModel : PageModel {
             StockQuantity = (int)Product.StockQuantity!,
             Image         = $"/{imageUrl}",
             ProductWeight = (double)Product.ProductWeight!,
-            IsFeatured    = Product.IsFeatured
         };
 
         var productCategories = Product.Categories

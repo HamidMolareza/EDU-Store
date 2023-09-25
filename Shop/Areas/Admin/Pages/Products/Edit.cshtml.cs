@@ -44,9 +44,6 @@ public class EditModel : PageModel {
         [Required(ErrorMessage = "{0} ضروری است.")]
         public int? StockQuantity { get; set; }
 
-        [Display(Name = "اضافه کردن به لیست ویژه‌؟")]
-        public bool IsFeatured { get; set; }
-
         [Display(Name = "وزن محصول (کیلوگرم)")]
         [Range(0, double.MaxValue, ErrorMessage = "{0} باید بین {1} تا {2} باشد.")]
         [Required(ErrorMessage = "{0} ضروری است.")]
@@ -76,7 +73,6 @@ public class EditModel : PageModel {
             Name          = product.Name,
             Price         = product.Price,
             StockQuantity = product.StockQuantity,
-            IsFeatured    = product.IsFeatured,
             ProductWeight = product.ProductWeight,
             Categories    = product.ProductCategories.Select(pc => pc.CategoryId).ToList(),
             ImageUrl      = product.Image
@@ -153,7 +149,6 @@ public class EditModel : PageModel {
         dbProduct.Price         = (decimal)Product.Price!;
         dbProduct.StockQuantity = (int)Product.StockQuantity!;
         dbProduct.ProductWeight = (double)Product.ProductWeight!;
-        dbProduct.IsFeatured    = Product.IsFeatured;
 
         var productCategories = Product.Categories
             .Select(categoryId => new ProductCategory { CategoryId = categoryId, ProductId = dbProduct.Id })

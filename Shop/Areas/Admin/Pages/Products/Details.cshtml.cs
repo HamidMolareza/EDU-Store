@@ -29,7 +29,6 @@ public class DetailsModel : PageModel {
 
         [Display(Name = "تعداد")] public int StockQuantity { get; set; }
 
-        [Display(Name = "ویژه؟")] public bool IsFeatured { get; set; }
 
         [Display(Name = "وزن محصول (کیلوگرم)")]
         public double ProductWeight { get; set; }
@@ -56,7 +55,6 @@ public class DetailsModel : PageModel {
             Description       = product.Description,
             Name              = product.Name,
             Price             = product.Price,
-            IsFeatured        = product.IsFeatured,
             ProductWeight     = product.ProductWeight,
             StockQuantity     = product.StockQuantity
         };

@@ -145,20 +145,21 @@ public static class DbInitializer {
             new() { Name = "گل‌های زینتی" },
             new() { Name = "بذرها" },
             new() { Name = "خوراکی‌ها" },
-            new() { Name = "ابزارهای باغبانی" }
+            new() { Name = "ابزارهای باغبانی" },
+            new() { Name = "ویژه" },
         };
         context.Categories.AddRange(categories);
 
         context.Products.AddRange(
             new Product {
-                Name              = "گل رز قرمز",
-                Description       = "گل رز قرمز با گلبرگ‌های زیبا و خوشبو که برای هدیه دادن عالی است.",
-                ProductCategories = new List<ProductCategory> { new() { Category = categories[0] } },
-                Price             = 25000,
-                StockQuantity     = 50,
-                Image             = "/img/products/rose.jpg",
-                ProductWeight     = 0.5,
-                IsFeatured        = true
+                Name        = "گل رز قرمز",
+                Description = "گل رز قرمز با گلبرگ‌های زیبا و خوشبو که برای هدیه دادن عالی است.",
+                ProductCategories = new List<ProductCategory>
+                    { new() { Category = categories[0] }, new() { Category = categories[4] } },
+                Price         = 25000,
+                StockQuantity = 50,
+                Image         = "/img/products/rose.jpg",
+                ProductWeight = 0.5,
             },
             new Product {
                 Name              = "گل لاله زرد",
@@ -168,7 +169,6 @@ public static class DbInitializer {
                 StockQuantity     = 4,
                 Image             = "/img/products/tulip.jpg",
                 ProductWeight     = 0.4,
-                IsFeatured        = true
             },
             new Product {
                 Name              = "گل بنفشه",
@@ -177,8 +177,7 @@ public static class DbInitializer {
                 Price             = 22000,
                 StockQuantity     = 35,
                 Image             = "/img/products/lilac.jpg",
-                ProductWeight     = 0.6,
-                IsFeatured        = false
+                ProductWeight     = 0.6
             },
             new Product {
                 Name = "گل زنبق سفید",
@@ -188,17 +187,16 @@ public static class DbInitializer {
                 StockQuantity = 25,
                 Image = "/img/products/lily.jpg",
                 ProductWeight = 0.7,
-                IsFeatured = false
             },
             new Product {
-                Name              = "گل داوودی",
-                Description       = "گل داوودی با رنگ‌های جذاب و زیبا که به سرعت در فصل بهار می‌رشد.",
-                ProductCategories = new List<ProductCategory> { new() { Category = categories[0] } },
-                Price             = 15000,
-                StockQuantity     = 60,
-                Image             = "/img/products/daffodil.jpg",
-                ProductWeight     = 0.3,
-                IsFeatured        = true
+                Name        = "گل داوودی",
+                Description = "گل داوودی با رنگ‌های جذاب و زیبا که به سرعت در فصل بهار می‌رشد.",
+                ProductCategories = new List<ProductCategory>
+                    { new() { Category = categories[0] }, new() { Category = categories[4] } },
+                Price         = 15000,
+                StockQuantity = 60,
+                Image         = "/img/products/daffodil.jpg",
+                ProductWeight = 0.3,
             },
 
             // Category: بذرها
@@ -210,7 +208,6 @@ public static class DbInitializer {
                 StockQuantity     = 100,
                 Image             = "/img/products/marigold.jpg",
                 ProductWeight     = 0.1,
-                IsFeatured        = true
             },
             new Product {
                 Name              = "بذر گلابی",
@@ -219,8 +216,7 @@ public static class DbInitializer {
                 Price             = 8000,
                 StockQuantity     = 8,
                 Image             = "/img/products/pear.jpg",
-                ProductWeight     = 0.2,
-                IsFeatured        = false
+                ProductWeight     = 0.2
             },
             new Product {
                 Name              = "بذر گل مغرنسیا",
@@ -230,7 +226,6 @@ public static class DbInitializer {
                 StockQuantity     = 90,
                 Image             = "/img/products/magnolia.jpg",
                 ProductWeight     = 0.12,
-                IsFeatured        = true
             },
             new Product {
                 Name              = "بذر گل مو",
@@ -240,7 +235,6 @@ public static class DbInitializer {
                 StockQuantity     = 150,
                 Image             = "/img/products/maidenhair-fern.jpg",
                 ProductWeight     = 0.08,
-                IsFeatured        = true
             },
 
             // Category: خوراکی‌ها
@@ -251,8 +245,7 @@ public static class DbInitializer {
                 Price             = 15000,
                 StockQuantity     = 30,
                 Image             = "/img/products/organic-vegetables.jpg",
-                ProductWeight     = 1.0,
-                IsFeatured        = false
+                ProductWeight     = 1.0
             },
             new Product {
                 Name              = "میوه‌های تازه",
@@ -261,18 +254,17 @@ public static class DbInitializer {
                 Price             = 18000,
                 StockQuantity     = 4,
                 Image             = "/img/products/fresh-fruits.jpg",
-                ProductWeight     = 1.2,
-                IsFeatured        = false
+                ProductWeight     = 1.2
             },
             new Product {
-                Name              = "عسل طبیعی",
-                Description       = "عسل طبیعی و خالص از زنبورستان ما.",
-                ProductCategories = new List<ProductCategory> { new() { Category = categories[2] } },
-                Price             = 25000,
-                StockQuantity     = 40,
-                Image             = "/img/products/honey.png",
-                ProductWeight     = 0.5,
-                IsFeatured        = true
+                Name        = "عسل طبیعی",
+                Description = "عسل طبیعی و خالص از زنبورستان ما.",
+                ProductCategories = new List<ProductCategory>
+                    { new() { Category = categories[2] }, new() { Category = categories[4] } },
+                Price         = 25000,
+                StockQuantity = 40,
+                Image         = "/img/products/honey.png",
+                ProductWeight = 0.5,
             },
             new Product {
                 Name              = "آجیل",
@@ -281,20 +273,19 @@ public static class DbInitializer {
                 Price             = 10000,
                 StockQuantity     = 60,
                 Image             = "/img/products/nuts.jpg",
-                ProductWeight     = 0.4,
-                IsFeatured        = false
+                ProductWeight     = 0.4
             },
 
             // Category: ابزارهای باغبانی
             new Product {
-                Name              = "ابزار باغبانی کامل",
-                Description       = "مجموعه‌ای از ابزارهای باغبانی حرفه‌ای برای حیاط خود.",
-                ProductCategories = new List<ProductCategory> { new() { Category = categories[3] } },
-                Price             = 75000,
-                StockQuantity     = 8,
-                Image             = "/img/products/gardening-tools.jpg",
-                ProductWeight     = 2.5,
-                IsFeatured        = true
+                Name        = "ابزار باغبانی کامل",
+                Description = "مجموعه‌ای از ابزارهای باغبانی حرفه‌ای برای حیاط خود.",
+                ProductCategories = new List<ProductCategory>
+                    { new() { Category = categories[3] }, new() { Category = categories[4] } },
+                Price         = 75000,
+                StockQuantity = 8,
+                Image         = "/img/products/gardening-tools.jpg",
+                ProductWeight = 2.5,
             },
             new Product {
                 Name              = "خرطومی آبیاری",
@@ -303,8 +294,7 @@ public static class DbInitializer {
                 Price             = 35000,
                 StockQuantity     = 15,
                 Image             = "/img/products/hose.jpg",
-                ProductWeight     = 1.2,
-                IsFeatured        = false
+                ProductWeight     = 1.2
             },
             new Product {
                 Name              = "بذراشکار",
@@ -313,18 +303,17 @@ public static class DbInitializer {
                 Price             = 25000,
                 StockQuantity     = 20,
                 Image             = "/img/products/seeder.jpg",
-                ProductWeight     = 0.8,
-                IsFeatured        = false
+                ProductWeight     = 0.8
             },
             new Product {
-                Name              = "گلدان‌های چوبی",
-                Description       = "گلدان‌های چوبی با طراحی زیبا برای نگهداری گیاهان شما.",
-                ProductCategories = new List<ProductCategory> { new() { Category = categories[3] } },
-                Price             = 20000,
-                StockQuantity     = 25,
-                Image             = "/img/products/wooden-planters.jpg",
-                ProductWeight     = 0.6,
-                IsFeatured        = false
+                Name        = "گلدان‌های چوبی",
+                Description = "گلدان‌های چوبی با طراحی زیبا برای نگهداری گیاهان شما.",
+                ProductCategories = new List<ProductCategory>
+                    { new() { Category = categories[3] }, new() { Category = categories[4] } },
+                Price         = 20000,
+                StockQuantity = 25,
+                Image         = "/img/products/wooden-planters.jpg",
+                ProductWeight = 0.6
             }
         );
         await context.SaveChangesAsync();
