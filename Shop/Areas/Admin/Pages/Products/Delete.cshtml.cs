@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Shop.Data;
-using Shop.Models;
 
 namespace Shop.Areas.Admin.Pages.Products;
 
