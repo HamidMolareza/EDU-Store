@@ -55,7 +55,9 @@ public class EditModel : PageModel {
         [Display(Name = "عکس")] public IFormFile? Image { get; set; }
         public string ImageUrl { get; set; }
 
-        [Display(Name = "توضیحات")] public string? Description { get; set; }
+        [Display(Name = "توضیحات")]
+        [MaxLength(80, ErrorMessage = "{0} باید حداکثر {1} کاراکتر باشد.")]
+        public string? Description { get; set; }
     }
 
     public async Task<IActionResult> OnGet(int? id) {

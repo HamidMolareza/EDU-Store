@@ -165,7 +165,7 @@ public static class DbInitializer {
                 Description       = "گل لاله زرد با رنگی خوش‌آمیز که در باغ‌ها به عنوان تزیین استفاده می‌شود.",
                 ProductCategories = new List<ProductCategory> { new() { Category = categories[0] } },
                 Price             = 18000,
-                StockQuantity     = 40,
+                StockQuantity     = 4,
                 Image             = "/img/products/tulip.jpg",
                 ProductWeight     = 0.4,
                 IsFeatured        = true
@@ -217,7 +217,7 @@ public static class DbInitializer {
                 Description       = "بذر گلابی برای کاشت در باغ و تولید میوه‌های خوشمزه.",
                 ProductCategories = new List<ProductCategory> { new() { Category = categories[1] } },
                 Price             = 8000,
-                StockQuantity     = 80,
+                StockQuantity     = 8,
                 Image             = "/img/products/pear.jpg",
                 ProductWeight     = 0.2,
                 IsFeatured        = false
@@ -259,7 +259,7 @@ public static class DbInitializer {
                 Description       = "میوه‌های تازه و تر، از باغ‌های ما به سفر خود ببرید.",
                 ProductCategories = new List<ProductCategory> { new() { Category = categories[2] } },
                 Price             = 18000,
-                StockQuantity     = 25,
+                StockQuantity     = 4,
                 Image             = "/img/products/fresh-fruits.jpg",
                 ProductWeight     = 1.2,
                 IsFeatured        = false
@@ -291,7 +291,7 @@ public static class DbInitializer {
                 Description       = "مجموعه‌ای از ابزارهای باغبانی حرفه‌ای برای حیاط خود.",
                 ProductCategories = new List<ProductCategory> { new() { Category = categories[3] } },
                 Price             = 75000,
-                StockQuantity     = 10,
+                StockQuantity     = 8,
                 Image             = "/img/products/gardening-tools.jpg",
                 ProductWeight     = 2.5,
                 IsFeatured        = true
