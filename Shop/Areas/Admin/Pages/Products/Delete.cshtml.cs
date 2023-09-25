@@ -9,9 +9,11 @@ namespace Shop.Areas.Admin.Pages.Products;
 
 public class DeleteModel : PageModel {
     private readonly ApplicationDbContext _context;
+    private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public DeleteModel(ApplicationDbContext context) {
-        _context = context;
+    public DeleteModel(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment) {
+        _context            = context;
+        _webHostEnvironment = webHostEnvironment;
     }
 
     public ProductModel Product { get; set; } = default!;
@@ -69,8 +71,16 @@ public class DeleteModel : PageModel {
         if (id == null)
             return NotFound();
 
-        _context.Products.Remove(new Product { Id = (int)id });
+        var item = await _context.Products.FindAsync(id);
+        if (item is null)
+            return RedirectToPage("./Index");
+
+        _context.Products.Remove(item);
         await _context.SaveChangesAsync();
+
+        //Remove old image
+        var oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, item.Image[1..]);
+        System.IO.File.Delete(oldImagePath);
 
         return RedirectToPage("./Index");
     }

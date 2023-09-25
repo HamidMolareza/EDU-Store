@@ -139,8 +139,12 @@ public class EditModel : PageModel {
             await using var stream = new FileStream(imagePath, FileMode.Create);
             await Product.Image.CopyToAsync(stream);
 
+            //Remove old image
+            var oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, dbProduct.Image[1..]);
+            System.IO.File.Delete(oldImagePath);
+
+            //Set new image path
             dbProduct.Image = $"/{imageUrl}";
-            //TODO: Delete old image
         }
 
         dbProduct.Name          = Product.Name;
@@ -151,10 +155,10 @@ public class EditModel : PageModel {
         dbProduct.IsFeatured    = Product.IsFeatured;
 
         var productCategories = Product.Categories
-            .Select(categoryId => new ProductCategory { CategoryId = categoryId, ProductId = dbProduct.Id})
+            .Select(categoryId => new ProductCategory { CategoryId = categoryId, ProductId = dbProduct.Id })
             .ToList();
         dbProduct.ProductCategories = productCategories;
-        
+
         await _context.SaveChangesAsync();
         return RedirectToPage("./Index");
     }
