@@ -166,7 +166,7 @@ public static class DbInitializer {
                 Description       = "گل لاله زرد با رنگی خوش‌آمیز که در باغ‌ها به عنوان تزیین استفاده می‌شود.",
                 ProductCategories = new List<ProductCategory> { new() { Category = categories[0] } },
                 Price             = 18000,
-                StockQuantity     = 4,
+                StockQuantity     = 9,
                 Image             = "/img/products/tulip.jpg",
                 ProductWeight     = 0.4,
             },
@@ -252,7 +252,7 @@ public static class DbInitializer {
                 Description       = "میوه‌های تازه و تر، از باغ‌های ما به سفر خود ببرید.",
                 ProductCategories = new List<ProductCategory> { new() { Category = categories[2] } },
                 Price             = 18000,
-                StockQuantity     = 4,
+                StockQuantity     = 3,
                 Image             = "/img/products/fresh-fruits.jpg",
                 ProductWeight     = 1.2
             },
@@ -283,7 +283,7 @@ public static class DbInitializer {
                 ProductCategories = new List<ProductCategory>
                     { new() { Category = categories[3] }, new() { Category = categories[4] } },
                 Price         = 75000,
-                StockQuantity = 8,
+                StockQuantity = 6,
                 Image         = "/img/products/gardening-tools.jpg",
                 ProductWeight = 2.5,
             },
