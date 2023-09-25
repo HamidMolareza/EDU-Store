@@ -18,7 +18,13 @@ public class PaginationModel<T> : PageModel {
 
         PageIndex  = page  ?? 1;
         PageLimit  = limit ?? 10;
+        
         TotalItems = await source.CountAsync();
+        if (TotalItems == 0) {
+            ValidPage = true;
+            return;
+        }
+        
         var totalPages = (int)Math.Ceiling(TotalItems / (double)PageLimit);
         if (PageIndex > totalPages) {
             ValidPage = false;
