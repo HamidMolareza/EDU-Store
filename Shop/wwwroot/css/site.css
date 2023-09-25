@@ -61,6 +61,48 @@ img {
     border-color: #007bff; /* Change border color on hover */
 }
 
+.app-logo {
+    box-shadow: none;
+    border-radius: unset;
+    vertical-align: unset;
+}
+
+@media (max-width: 768px) {
+    .app-logo {
+        width: 45px;
+        height: 45px;
+    }
+}
+
 td {
     vertical-align: middle;
+}
+
+.card-icon {
+    font-size: 55px;
+    top: 8px;
+    left: 30px;
+}
+
+@media (min-width: 768px) {
+    .card-icon {
+        font-size: 70px;
+        left: 25px;
+        top: 6px;
+    }
+}
+
+.navbar {
+    font-size: 1.2rem;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        font-size: 1rem;
+    }
+
+    .dropdown-navbar {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem !important;
+    }
 }

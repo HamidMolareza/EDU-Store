@@ -8,7 +8,7 @@
         <li class="align-items-center d-flex nav-item">
             @if (User.IsInRole(Roles.Admin)) {
                 <div class="dropdown">
-                    <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline-dark btn-sm dropdown-toggle" data-bs-toggle="dropdown" id="dropdownMenuButton" type="button">
+                    <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline-dark dropdown-toggle dropdown-navbar" data-bs-toggle="dropdown" id="dropdownMenuButton" type="button">
                         @User.Identity?.Name
                     </button>
                     <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
