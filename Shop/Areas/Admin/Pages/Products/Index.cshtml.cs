@@ -14,6 +14,7 @@ public class IndexModel : PaginationModel<IndexModel.ProductModel> {
 
     public class ProductModel {
         public int Id { get; set; }
+        [Display(Name = "عکس")] public string ImageUrl { get; set; } = default!;
         [Display(Name = "نام")] public string Name { get; set; } = default!;
         [Display(Name = "دسته‌بندی‌ها")] public string Categories { get; set; } = default!;
 
@@ -33,6 +34,7 @@ public class IndexModel : PaginationModel<IndexModel.ProductModel> {
             .ThenInclude(productCategory => productCategory.Category)
             .Select(item => new ProductModel {
                 Id            = item.Id,
+                ImageUrl = item.Image,
                 Name          = item.Name,
                 Categories    = string.Join(", ", item.ProductCategories.Select(pc => pc.Category.Name)),
                 Price         = item.Price,

@@ -60,3 +60,7 @@ img {
 .image-container:hover {
     border-color: #007bff; /* Change border color on hover */
 }
+
+td {
+    vertical-align: middle;
+}
