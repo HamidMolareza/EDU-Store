@@ -18,7 +18,6 @@ public class EditModel : PageModel {
 
     [BindProperty] public ProductModel Product { get; set; } = default!;
     public List<CategoryModel> Categories { get; set; }
-    [Display(Name = "عکس محصول")] public string ImageUrl { get; set; }
 
     public class CategoryModel {
         public int Id { get; set; }
@@ -36,7 +35,6 @@ public class EditModel : PageModel {
         [Display(Name = "دسته‌بندی‌ها")] public List<int> Categories { get; set; } = new();
 
         [Display(Name = "قیمت (تومان)")]
-        // [DisplayFormat(DataFormatString = "{0:N0}", ApplyFormatInEditMode = true)]
         [Range(0, double.MaxValue, ErrorMessage = "{0} باید بین {1} تا {2} باشد.")]
         [Required(ErrorMessage = "{0} ضروری است.")]
         public decimal? Price { get; set; }
@@ -55,6 +53,7 @@ public class EditModel : PageModel {
         public double? ProductWeight { get; set; }
 
         [Display(Name = "عکس")] public IFormFile? Image { get; set; }
+        public string ImageUrl { get; set; }
 
         [Display(Name = "توضیحات")] public string? Description { get; set; }
     }
@@ -77,9 +76,9 @@ public class EditModel : PageModel {
             StockQuantity = product.StockQuantity,
             IsFeatured    = product.IsFeatured,
             ProductWeight = product.ProductWeight,
-            Categories    = product.ProductCategories.Select(pc => pc.CategoryId).ToList()
+            Categories    = product.ProductCategories.Select(pc => pc.CategoryId).ToList(),
+            ImageUrl = product.Image
         };
-        ImageUrl = product.Image;
         await LoadCategoriesAsync();
 
         return Page();
