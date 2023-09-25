@@ -13,7 +13,7 @@
 </head>
 <body>
 <header>
-    <nav class="bg-white border-bottom box-shadow navbar navbar-expand-sm navbar-light navbar-toggleable-sm pb-3 pt-2 py-md-0">
+    <nav class="bg-white border-bottom box-shadow navbar navbar-expand-sm navbar-light navbar-toggleable-sm pb-3 pt-2 px-0 px-md-3 py-md-0">
         <div class="container-fluid">
             <a asp-area="" asp-page="/Index" class="navbar-brand position-relative" style="margin-left: 8px; top: 3px;">
                 <img alt="logo" class="app-logo" height="40px" src="~/img/logo.png" width="40px"/>
@@ -23,7 +23,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse d-sm-inline-flex justify-content-between navbar-collapse">
-                <ul class="flex-grow-1 navbar-nav nav-menus">
+                <ul class="flex-grow-1 nav-menus navbar-nav">
                     <li class="nav-item">
                         <a asp-area="" asp-page="/Index" class="nav-link text-dark">خانه</a>
                     </li>
@@ -35,6 +35,12 @@
                     </li>
                 </ul>
                 <partial name="_LoginPartial"/>
+                <a class="align-items-center d-flex justify-content-center text-black" href="#" style="width: 40px; height: 40px">
+                    <div class="position-relative">
+                        <i class="bi bi-cart" style="font-size: 22px; margin-right: 4px"></i>
+                        <span class="badge bg-danger position-absolute text-white" style="bottom: -2px; right: -6px; font-size: 11px"></span>
+                    </div>
+                </a>
             </div>
         </div>
     </nav>
