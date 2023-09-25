@@ -77,7 +77,7 @@ public class EditModel : PageModel {
             IsFeatured    = product.IsFeatured,
             ProductWeight = product.ProductWeight,
             Categories    = product.ProductCategories.Select(pc => pc.CategoryId).ToList(),
-            ImageUrl = product.Image
+            ImageUrl      = product.Image
         };
         await LoadCategoriesAsync();
 
