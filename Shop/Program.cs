@@ -34,7 +34,8 @@ using var scope    = app.Services.CreateScope();
 var       services = scope.ServiceProvider;
 await DbInitializer.InitializeAsync(services);
 
-app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment())
+    app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();

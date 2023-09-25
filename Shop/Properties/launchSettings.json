@@ -15,7 +15,7 @@
       "workingDirectory": "$(ProjectDir)",
       "hotReloadEnabled": true,
       "hotReloadProfile": "aspnetcore",
-      "commandLineArgs": "run",
+      "commandLineArgs": "run --urls http://[*]:3000",
       "launchBrowser": true,
       "applicationUrl": "http://localhost:5038",
       "environmentVariables": {
@@ -29,9 +29,9 @@
       "workingDirectory": "$(ProjectDir)",
       "hotReloadEnabled": true,
       "hotReloadProfile": "aspnetcore",
-      "commandLineArgs": "watch run",
+      "commandLineArgs": "watch run --urls http://[*]:3000",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:5038",
+      "applicationUrl": "http://[*]:3000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -43,7 +43,7 @@
       "workingDirectory": "$(ProjectDir)",
       "hotReloadEnabled": true,
       "hotReloadProfile": "aspnetcore",
-      "commandLineArgs": "watch run",
+      "commandLineArgs": "watch run --urls http://[*]:3000",
       "launchBrowser": true,
       "applicationUrl": "http://localhost:5038",
       "environmentVariables": {
