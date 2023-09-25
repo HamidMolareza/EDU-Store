@@ -1,4 +1,20 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function previewImage(input) {
+    const preview = document.getElementById('image-preview');
+    const imageContainer = document.getElementById('image-container');
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
 
-// Write your JavaScript code.
+        reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+            imageContainer.style.display = 'none'
+            $("#image-validation-message").empty()
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    } else {
+        preview.src = '#';
+        preview.style.display = 'none';
+        imageContainer.style.display = 'block'
+    }
+}

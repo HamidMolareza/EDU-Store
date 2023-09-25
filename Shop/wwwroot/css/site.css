@@ -30,3 +30,33 @@ body {
         overflow-x: auto;
     }
 }
+
+.product-image {
+    /* Add a transition for smooth hover effects */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for product images */
+.product-image:hover {
+    transform: scale(1.05); /* Slightly enlarge the image on hover */
+}
+
+img {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.image-container {
+    display: block;
+    border: 2px solid #ccc; /* Border color and thickness */
+    overflow: hidden; /* Clip image overflow */
+    position: relative; /* Position for overlay text */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Hover effect for the border */
+.image-container:hover {
+    border-color: #007bff; /* Change border color on hover */
+}

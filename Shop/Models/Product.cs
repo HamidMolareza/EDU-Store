@@ -8,13 +8,12 @@ public class Product {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
-    public string Name { get; set; }                             // Product name
-    public string Description { get; set; }                      // Product description
-    public List<ProductCategory> Category { get; set; } = new(); // Product category
-    public decimal Price { get; set; }                           // Product price
-    public int StockQuantity { get; set; }                       // Current stock quantity
+    [Required] [MinLength(3)] public string Name { get; set; } = default!; // Product name
+    public string? Description { get; set; }                               // Product description
+    public List<ProductCategory> ProductCategories { get; set; } = new();  // Product category
+    public decimal Price { get; set; }                                     // Product price
+    [Range(0, int.MaxValue)] public int StockQuantity { get; set; }        // Current stock quantity
     public string Image { get; set; }
-    public double ProductWeight { get; set; } // Product weight
-    public bool IsAvailable { get; set; }     // Product availability
-    public bool IsFeatured { get; set; }      // Flag for featured products
+    [Range(0, double.MaxValue)] public double ProductWeight { get; set; } // Product weight
+    public bool IsFeatured { get; set; }                                  // Flag for featured products
 }
