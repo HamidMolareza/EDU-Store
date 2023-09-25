@@ -9,7 +9,7 @@
     <div class="bg-danger card-header text-center text-white" style="font-size: 1.1rem">@ViewData["Title"]</div>
     <div class="card-body p-4">
 
-        <div class="row">
+        <div class="flex-column-reverse flex-md-row row">
             <dl class="col col-md-8 row">
                 <dt class="col-sm-3">
                     @Html.DisplayNameFor(model => model.Product.Name)
@@ -54,7 +54,7 @@
                     @Html.DisplayFor(model => model.Product.IsFeatured)
                 </dd>
             </dl>
-            <div class="align-items-center col col-md-4 d-flex justify-content-end my-2">
+            <div class="align-items-center col col-md-4 d-flex justify-content-center my-2">
                 <img alt="Image of @Model.Product.Name" class="product-image" height="250px" src="@Model.Product.Image" width="250px"/>
             </div>
         </div>
