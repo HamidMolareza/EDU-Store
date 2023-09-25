@@ -1050,3 +1050,7 @@ a[data-toggle="collapse"] {
 ul.sidebar-items li > a > span, ul.sidebar-items li > a > i {
     margin-left: 8px;
 }
+
+#sidebar .custom-menu .btn-sidebar.btn-sidebar-primary:after{
+    background-color: #212529;
+}

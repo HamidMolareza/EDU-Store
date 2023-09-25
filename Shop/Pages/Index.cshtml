@@ -63,7 +63,7 @@
 @foreach (var category in Model.Categories) {
     <div class="card m-auto my-5" style="max-width: 1200px;">
         <div class="bg-white card-header px-0 py-0" style="font-size: 1.3rem">
-            <div class="py-3 text-center text-white" style="max-width: 200px; background-color: #54a0ff">@category.Title</div>
+            <div class="py-3 text-center text-white category-title">@category.Title</div>
         </div>
         <div class="card-body d-flex flex-wrap gap-5 justify-content-center py-4">
             @foreach (var product in category.Products) {
