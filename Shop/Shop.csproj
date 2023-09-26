@@ -32,4 +32,8 @@
         <Folder Include="Areas\Admin\Pages\Members\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\lib\google-fonts\font.woff2" />
+    </ItemGroup>
+
 </Project>

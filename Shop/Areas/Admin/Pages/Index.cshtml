@@ -6,13 +6,15 @@
     <div class="card mb-3 text-bg-primary" style="max-width: 18rem; min-width: 260px">
         <div class="card-header" style="font-size: 1.2rem">تعداد پیام‌ها</div>
         <div class="card-body position-relative py-3">
-            <i class="bi bi-chat-left-text card-icon opacity-50 position-absolute"></i>
+            <span class="card-icon material-symbols material-symbols-outline opacity-50 position-absolute">
+                chat
+            </span>
             <span class="position-relative" style="font-size: 2.5rem;top: 4px;right: -34px;">@Model.InfoModel.NumOfMessages</span>
         </div>
         <a asp-page="./ContactUs/Index" class="btn btn-lg btn-primary rounded-0" style="font-size: 1rem; background-color: #0a54c3">
             <div class="d-flex flex-row gap-2 justify-content-center">
                 دیدن پیام‌ها
-                <i class="bi bi-arrow-left-circle-fill" style="font-size: 16px; padding-top: 2px"></i>
+                <span class="material-symbols material-symbols-fill" style="font-size: 22px;"> arrow_circle_left </span>
             </div>
         </a>
     </div>
@@ -20,13 +22,15 @@
     <div class="card mb-3 text-bg-warning" style="max-width: 18rem; min-width: 260px">
         <div class="card-header" style="font-size: 1.2rem">تعداد اعضا</div>
         <div class="card-body position-relative py-3">
-            <i class="bi bi-people card-icon opacity-50 position-absolute"></i>
+            <span class="card-icon material-symbols material-symbols-outline opacity-50 position-absolute">
+                group
+            </span>
             <span class="position-relative" style="font-size: 2.5rem;top: 4px;right: -34px;">@Model.InfoModel.NumOfMembers</span>
         </div>
         <a asp-page="./Members/Index" class="btn btn-lg rounded-0 text-white" style="font-size: 1rem; background-color: #cf9d05">
             <div class="d-flex flex-row gap-2 justify-content-center">
                 دیدن اعضا
-                <i class="bi bi-arrow-left-circle-fill" style="font-size: 16px; padding-top: 2px"></i>
+                <span class="material-symbols material-symbols-fill" style="font-size: 22px;"> arrow_circle_left </span>
             </div>
         </a>
     </div>
@@ -34,13 +38,15 @@
     <div class="card mb-3 text-bg-secondary" style="max-width: 18rem; min-width: 260px">
         <div class="card-header" style="font-size: 1.2rem">تعداد دسته‌ها</div>
         <div class="card-body position-relative py-3">
-            <i class="bi bi-bookmarks-fill card-icon opacity-50 position-absolute"></i>
+            <span class="card-icon material-symbols material-symbols-outline opacity-50 position-absolute">
+                category
+            </span>
             <span class="position-relative" style="font-size: 2.5rem;top: 4px;right: -34px;">@Model.InfoModel.NumOfCategories</span>
         </div>
         <a asp-page="./Categories/Index" class="btn btn-lg rounded-0 text-white" style="font-size: 1rem; background-color: #484f55">
             <div class="d-flex flex-row gap-2 justify-content-center">
                 مدیریت دسته‌بندی‌ها
-                <i class="bi bi-arrow-left-circle-fill" style="font-size: 16px; padding-top: 2px"></i>
+                <span class="material-symbols material-symbols-fill" style="font-size: 22px;"> arrow_circle_left </span>
             </div>
         </a>
     </div>
@@ -48,26 +54,30 @@
     <div class="card mb-3 text-bg-success" style="max-width: 18rem; min-width: 260px">
         <div class="card-header" style="font-size: 1.2rem">تعداد محصولات</div>
         <div class="card-body position-relative py-3">
-            <i class="bi bi-box-fill card-icon opacity-50 position-absolute"></i>
+            <span class="card-icon material-symbols material-symbols-outline opacity-50 position-absolute">
+                deployed_code
+            </span>
             <span class="position-relative" style="font-size: 2.5rem;top: 4px;right: -34px;">@Model.InfoModel.NumOfProducts</span>
         </div>
         <a asp-page="./Products/Index" class="btn btn-lg rounded-0 text-white" style="font-size: 1rem; background-color: #12653e">
             <div class="d-flex flex-row gap-2 justify-content-center">
                 دیدن محصولات
-                <i class="bi bi-arrow-left-circle-fill" style="font-size: 16px; padding-top: 2px"></i>
+                <span class="material-symbols material-symbols-fill" style="font-size: 22px;"> arrow_circle_left </span>
             </div>
         </a>
     </div>
     <div class="card mb-3 text-bg-danger" style="max-width: 18rem; min-width: 260px">
         <div class="card-header" style="font-size: 1.2rem">تعداد پیام‌ها</div>
         <div class="card-body position-relative py-3">
-            <i class="bi bi-chat-left-text card-icon opacity-50 position-absolute"></i>
+            <span class="card-icon material-symbols material-symbols-outline opacity-50 position-absolute">
+                deployed_code
+            </span>
             <span class="position-relative" style="font-size: 2.5rem;top: 4px;right: -34px;">@Model.InfoModel.NumOfMessages</span>
         </div>
         <a asp-page="./ContactUs/Index" class="btn btn-lg rounded-0 text-white" style="font-size: 1rem; background-color: #b32533">
             <div class="d-flex flex-row gap-2 justify-content-center">
                 دیدن پیام‌ها
-                <i class="bi bi-arrow-left-circle-fill" style="font-size: 16px; padding-top: 2px"></i>
+                <span class="material-symbols material-symbols-fill" style="font-size: 22px;"> arrow_circle_left </span>
             </div>
         </a>
     </div>
@@ -75,26 +85,30 @@
     <div class="card mb-3 text-bg-info" style="max-width: 18rem; min-width: 260px">
         <div class="card-header" style="font-size: 1.2rem">تعداد پیام‌ها</div>
         <div class="card-body position-relative py-3">
-            <i class="bi bi-chat-left-text card-icon opacity-50 position-absolute"></i>
+            <span class="card-icon material-symbols material-symbols-outline opacity-50 position-absolute">
+                deployed_code
+            </span>
             <span class="position-relative" style="font-size: 2.5rem;top: 4px;right: -34px;">@Model.InfoModel.NumOfMessages</span>
         </div>
         <a asp-page="./ContactUs/Index" class="btn btn-lg rounded-0 text-white" style="font-size: 1rem; background-color: #0ba1bf">
             <div class="d-flex flex-row gap-2 justify-content-center">
                 دیدن پیام‌ها
-                <i class="bi bi-arrow-left-circle-fill" style="font-size: 16px; padding-top: 2px"></i>
+                <span class="material-symbols material-symbols-fill" style="font-size: 22px;"> arrow_circle_left </span>
             </div>
         </a>
     </div>
     <div class="card mb-3 text-bg-light" style="max-width: 18rem; min-width: 260px">
         <div class="card-header" style="font-size: 1.2rem">تعداد پیام‌ها</div>
         <div class="card-body position-relative py-3">
-            <i class="bi bi-chat-left-text card-icon opacity-50 position-absolute"></i>
+            <span class="card-icon material-symbols material-symbols-outline opacity-50 position-absolute">
+                deployed_code
+            </span>
             <span class="position-relative" style="font-size: 2.5rem;top: 4px;right: -34px;">@Model.InfoModel.NumOfMessages</span>
         </div>
         <a asp-page="./ContactUs/Index" class="btn btn-lg rounded-0 text-black" style="font-size: 1rem; background-color: #c9cacb">
             <div class="d-flex flex-row gap-2 justify-content-center">
                 دیدن پیام‌ها
-                <i class="bi bi-arrow-left-circle-fill" style="font-size: 16px; padding-top: 2px"></i>
+                <span class="material-symbols material-symbols-fill" style="font-size: 22px;"> arrow_circle_left </span>
             </div>
         </a>
     </div>

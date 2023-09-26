@@ -79,16 +79,16 @@ td {
 }
 
 .card-icon {
-    font-size: 55px;
+    font-size: 65px !important;
     top: 8px;
     left: 30px;
 }
 
 @media (min-width: 768px) {
     .card-icon {
-        font-size: 70px;
+        font-size: 70px !important;
         left: 25px;
-        top: 6px;
+        top: 10px;
     }
 }
 
@@ -130,3 +130,41 @@ td {
         max-width: 200px;
     }
 }
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+.material-symbols-fill {
+    font-variation-settings: 'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: 100 700;
+    src: url('../fonts/google/font.woff2') format('woff2');
+}
+
+.material-symbols {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+

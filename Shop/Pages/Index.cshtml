@@ -14,35 +14,35 @@
     </div>
     <div class="carousel-inner">
         <div class="active carousel-item" data-bs-interval="5000">
-            <img alt="..." class="d-block w-100" src="/img/slideshow/image1.jpg">
+            <img alt="slide-1" class="d-block w-100" src="/img/slideshow/image1.jpg">
             <div class="carousel-caption d-md-block d-none">
                 <h5>سفر شما از اینجا شروع می‌شود</h5>
                 <p>با ما سفری سر سبز و پر از امکانات شروع کنید</p>
             </div>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
-            <img alt="..." class="d-block w-100" src="/img/slideshow/image2.jpg">
+            <img alt="slide-2" class="d-block w-100" src="/img/slideshow/image2.jpg">
             <div class="carousel-caption d-md-block d-none">
                 <h5>باغ‌های آینده</h5>
                 <p>باغ‌های خوب با بذرهای خوب ساخته می‌شوند</p>
             </div>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
-            <img alt="..." class="d-block w-100" src="/img/slideshow/image3.jpg">
+            <img alt="slide-3" class="d-block w-100" src="/img/slideshow/image3.jpg">
             <div class="carousel-caption d-md-block d-none">
                 <h5>عشق به زیبایی طبیعت</h5>
                 <p>کشاورزی، هنری است که باعث حفظ زیبایی و ثروت‌های طبیعت می‌شود</p>
             </div>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
-            <img alt="..." class="d-block w-100" src="/img/slideshow/image4.jpg">
+            <img alt="slide-4" class="d-block w-100" src="/img/slideshow/image4.jpg">
             <div class="carousel-caption d-md-block d-none">
                 <h5>از خاک تا میز غذا</h5>
                 <p>سفری از زمین‌های کشاورزی تا محصولات خوشمزه برای شما</p>
             </div>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
-            <img alt="..." class="d-block w-100" src="/img/slideshow/image5.jpg">
+            <img alt="slide-5" class="d-block w-100" src="/img/slideshow/image5.jpg">
             <div class="carousel-caption d-md-block d-none">
                 <h5>ما یک خانواده هستیم</h5>
                 <p>به جامعه در حال توسعه ما بپیوندید</p>
@@ -68,7 +68,7 @@
         <div class="card-body d-flex flex-wrap gap-5 justify-content-center py-4">
             @foreach (var product in category.Products) {
                 <div class="card pb-3" style="width: 230px;">
-                    <a href="#">
+                    <a asp-page="/Product/Index" asp-route-id="@product.ProductId">
                         <img alt="@product.Name" class="card-img-top rounded-0 shadow-none" height="200px" src="@product.ImageUrl" style="max-height: 200px;" width="100%">
                         <div class="card-body text-center text-secondary">
                             <h5 class="card-title" style="font-size: 1.1rem">@product.Name</h5>
@@ -82,8 +82,10 @@
 
                         </div>
                     </a>
-                    <a class="btn btn-primary m-auto" href="#" style="width: 160px">
-                        <i class="bi bi-cart"></i>
+                    <a class="btn btn-primary d-flex gap-2 justify-content-center m-auto" href="#" style="width: 160px">
+                        <span class="material-symbols material-symbols-fill">
+                            shopping_cart
+                        </span>
                         <span>خرید</span>
                     </a>
                 </div>
