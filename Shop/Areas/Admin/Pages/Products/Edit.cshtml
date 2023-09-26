@@ -62,7 +62,7 @@
                     <span class="mb-2">عکس محصول</span>
                     <label asp-for="Product.Image" style="cursor: pointer;">
                         <div class="image-container" id="image-container" style="width: 250px; height: 250px; cursor: pointer; display: none"></div>
-                        <img alt="Image Preview" class="image-container" height="250px" id="image-preview" src="@Model.Product.ImageUrl" width="250px">
+                        <img alt="Image Preview" class="image-container image-highlight" height="250px" id="image-preview" src="@Model.Product.ImageUrl" width="250px">
                     </label>
                     <input accept="image/*" asp-for="Product.Image" class="form-control" onchange="previewImage(this);" style="display: none;"/>
                     <span asp-validation-for="Product.Image" class="mt-3 text-center text-danger" id="image-validation-message"></span>

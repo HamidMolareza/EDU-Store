@@ -38,7 +38,7 @@
             @foreach (var item in Model.Items) {
                 <tr>
                     <td>
-                        <img alt="@item.Name" class="rounded-circle" height="50px" src="@item.ImageUrl" width="50px"/>
+                        <img alt="@item.Name" class="image-highlight rounded-circle" height="50px" src="@item.ImageUrl" width="50px"/>
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)

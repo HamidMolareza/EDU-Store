@@ -47,13 +47,36 @@
         </div>
     </nav>
 </header>
-<main role="main" style="margin-bottom: 90px !important;">
+<main role="main" style="margin-bottom: 250px !important;">
     @RenderBody()
 </main>
 
-<footer class="border-top footer text-muted">
+<footer class="border-top footer text-muted" style="line-height: unset">
     <div class="container">
-        &copy; 2023 - تمامی حقوق مطعلق به فروشگاه است.
+        <div class="d-flex flex-row justify-content-around pt-3">
+            <div class="align-items-center d-flex flex-column gap-3">
+                <img alt="امکان تحویل اکسپرس" height="56px" src="/img/credit/express-delivery.svg" width="56px"/>
+                <span class="position-relative" style="font-size: 0.85rem; top: -12px">امکان تحویل اکسپرس</span>
+            </div>
+            <div class="align-items-center d-flex flex-column gap-3">
+                <img alt="امکان پرداخت در محل" height="56px" src="/img/credit/cash-on-delivery.svg" width="56px"/>
+                <span class="position-relative" style="font-size: 0.85rem; top: -12px">امکان پرداخت در محل</span>
+            </div>
+            <div class="align-items-center d-flex flex-column gap-3">
+                <img alt="۷ روز، ۲۴ ساعته" height="56px" src="/img/credit/support.svg" width="56px"/>
+                <span class="position-relative" style="font-size: 0.85rem; top: -12px">۷ روز، ۲۴ ساعته</span>
+            </div>
+            <div class="align-items-center d-flex flex-column gap-3">
+                <img alt="۷ روز ضمانت بازگشت کالا" height="56px" src="/img/credit/days-return.svg" width="56px"/>
+                <span class="position-relative" style="font-size: 0.85rem; top: -12px">۷ روز ضمانت بازگشت کالا</span>
+            </div>
+            <div class="align-items-center d-flex flex-column gap-3">
+                <img alt="ضمانت اصل بودن کالا" height="56px" src="/img/credit/original-products.svg" width="56px"/>
+                <span class="position-relative" style="font-size: 0.85rem; top: -12px">ضمانت اصل بودن کالا</span>
+            </div>
+        </div>
+        <hr/>
+        <span class="align-items-center d-flex justify-content-center pb-3 text-center">&copy; 2023 - تمامی حقوق برای فروشگاه محفوظ است.</span>
     </div>
 </footer>
 
