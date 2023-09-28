@@ -4,3 +4,4 @@ wwwroot
 !wwwroot/js
 !wwwroot/lib/sidebar
 !wwwroot/img
+deploy.sh

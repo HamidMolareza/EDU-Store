@@ -4,8 +4,10 @@ using Shop.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
-builder.Services.AddDatabase(builder.Environment.IsDevelopment(), builder.Configuration)
+var isDevelopment = true; //TODO: builder.Environment.IsDevelopment();
+builder.Services.AddDatabase(isDevelopment, builder.Configuration)
     .AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddAuthentication();
