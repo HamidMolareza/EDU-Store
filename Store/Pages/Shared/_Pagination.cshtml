@@ -1,0 +1,28 @@
+@model Store.Models.Pagination
+
+@if (Model.IsValidPage) {
+    if (Model.TotalItems > 0) {
+        <paging class="mt-3"
+                page-no="@Model.PageIndex"
+                page-size="@Model.PageLimit"
+                page-size-dropdown-items="5-10-15"
+                query-string-key-page-no="p"
+                query-string-key-page-size="limit"
+                show-page-size-nav="false"
+                show-total-pages="false"
+                show-total-records="false"
+                total-records="@Model.TotalItems">
+        </paging>
+    }
+    else {
+        <div class="mt-3 text-center">
+            <p style="font-size: 1.1rem">موردی برای نمایش وجود ندارد.</p>
+        </div>
+    }
+}
+else {
+    <div class="mt-3 text-center">
+        <p class="text-danger" style="font-size: 1.1rem">چنین صفحه‌ای وجود ندارد.</p>
+        <a asp-page="@Model.MainPageLink" class="btn btn-primary">صفحه اول</a>
+    </div>
+}

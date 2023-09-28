@@ -1,0 +1,98 @@
+﻿@page
+@model Store.Pages.IndexModel
+@{
+    ViewData["Title"] = "صفحه اصلی";
+}
+
+<div class="carousel carousel-fade slide" data-bs-ride="carousel" id="slideshow">
+    <div class="carousel-indicators">
+        <button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0" data-bs-target="#slideshow" type="button"></button>
+        <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#slideshow" type="button"></button>
+        <button aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#slideshow" type="button"></button>
+        <button aria-label="Slide 4" data-bs-slide-to="3" data-bs-target="#slideshow" type="button"></button>
+        <button aria-label="Slide 5" data-bs-slide-to="4" data-bs-target="#slideshow" type="button"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="active carousel-item" data-bs-interval="5000">
+            <img alt="slide-1" class="d-block w-100" src="/img/slideshow/image1.jpg">
+            <div class="carousel-caption d-md-block d-none">
+                <h5>سفر شما از اینجا شروع می‌شود</h5>
+                <p>با ما سفری سر سبز و پر از امکانات شروع کنید</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img alt="slide-2" class="d-block w-100" src="/img/slideshow/image2.jpg">
+            <div class="carousel-caption d-md-block d-none">
+                <h5>باغ‌های آینده</h5>
+                <p>باغ‌های خوب با بذرهای خوب ساخته می‌شوند</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img alt="slide-3" class="d-block w-100" src="/img/slideshow/image3.jpg">
+            <div class="carousel-caption d-md-block d-none">
+                <h5>عشق به زیبایی طبیعت</h5>
+                <p>کشاورزی، هنری است که باعث حفظ زیبایی و ثروت‌های طبیعت می‌شود</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img alt="slide-4" class="d-block w-100" src="/img/slideshow/image4.jpg">
+            <div class="carousel-caption d-md-block d-none">
+                <h5>از خاک تا میز غذا</h5>
+                <p>سفری از زمین‌های کشاورزی تا محصولات خوشمزه برای شما</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img alt="slide-5" class="d-block w-100" src="/img/slideshow/image5.jpg">
+            <div class="carousel-caption d-md-block d-none">
+                <h5>ما یک خانواده هستیم</h5>
+                <p>به جامعه در حال توسعه ما بپیوندید</p>
+            </div>
+        </div>
+
+    </div>
+    <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#slideshow" type="button">
+        <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#slideshow" type="button">
+        <span aria-hidden="true" class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+@foreach (var category in Model.Categories) {
+    <div class="card m-auto my-5" style="max-width: 1200px;">
+        <div class="bg-white card-header px-0 py-0" style="font-size: 1.3rem">
+            <div class="category-title py-3 text-center text-white">@category.Title</div>
+        </div>
+        <div class="card-body d-flex flex-wrap gap-5 justify-content-center py-4">
+            @foreach (var product in category.Products) {
+                <div class="card pb-3" style="width: 230px;">
+                    <a asp-page="/Product/Index" asp-route-id="@product.ProductId">
+                        <img alt="@product.Name" class="card-img-top" height="200px" src="@product.ImageUrl" style="max-height: 200px;" width="100%">
+                        <div class="card-body text-center text-secondary">
+                            <h5 class="card-title" style="font-size: 1.1rem">@product.Name</h5>
+                            <p class="card-text" style="font-size: 1rem; height: 72px">@product.Description</p>
+                            <div class="align-items-center d-flex flex-column gap-1 justify-content-center mt-3" style="height: 50px">
+                                <span style="color: #428bca">@product.Price تومان</span>
+                                @if (product.StockQuantity < 10) {
+                                    <span class="small text-danger" style="font-size: 0.82rem">فقط @product.StockQuantity عدد باقی‌مانده است.</span>
+                                }
+                            </div>
+
+                        </div>
+                    </a>
+                    <a class="btn btn-primary d-flex gap-2 justify-content-center m-auto" href="#" style="width: 160px">
+                        <span class="material-symbols material-symbols-fill">
+                            shopping_cart
+                        </span>
+                        <span>خرید</span>
+                    </a>
+                </div>
+            }
+        </div>
+        <div class="d-flex justify-content-center mb-4 mt-3">
+            <a asp-page="/Category/Index" asp-route-id="@category.CategoryId" class="btn btn-outline-primary">مشاهده تمامی محصولات «@category.Title»</a>
+        </div>
+    </div>
+}

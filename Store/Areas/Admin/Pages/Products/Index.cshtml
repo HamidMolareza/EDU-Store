@@ -1,0 +1,75 @@
+@page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Store.Models
+@model Store.Areas.Admin.Pages.Products.IndexModel
+
+@{
+    ViewData["Title"] = "محصولات";
+}
+
+<div class="card" style="max-width: 1300px;">
+    <div class="card-header text-center" style="font-size: 1.1rem">@ViewData["Title"]</div>
+    <div class="card-body">
+        <p>
+            <a asp-page="Create">ایجاد محصول جدید</a>
+        </p>
+        <table class="table table-mobile-responsive">
+            <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items[0].ImageUrl)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items[0].Categories)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items[0].Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items[0].StockQuantity)
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Items) {
+                <tr>
+                    <td>
+                        <img alt="@item.Name" class="image-highlight rounded-circle" height="50px" src="@item.ImageUrl" width="50px"/>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td style="max-width: 250px;">
+                        @Html.DisplayFor(modelItem => item.Categories)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StockQuantity)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">ویرایش</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">جزئیات</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id" class="text-danger">حذف</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        @{
+            var paginationModel = new Pagination {
+                PageIndex = Model.PageIndex,
+                PageLimit = Model.PageLimit,
+                TotalItems = Model.TotalItems,
+                IsValidPage = Model.IsValidPage,
+                MainPageLink = "./Index",
+            };
+        }
+        <partial model="@paginationModel" name="_Pagination"/>
+    </div>
+</div>

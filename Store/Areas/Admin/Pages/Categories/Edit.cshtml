@@ -1,0 +1,35 @@
+@page
+@model Store.Areas.Admin.Pages.Categories.EditModel
+
+@{
+    ViewData["Title"] = "ویرایش دسته";
+}
+
+<div class="card m-auto" style="max-width: 700px">
+    <div class="card-header text-center" style="font-size: 1.1rem">ویرایش دسته‌بندی</div>
+    <div class="card-body p-4">
+        <div class="row">
+            <div class="col-md-6">
+                <form class="d-flex flex-column gap-3" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Category.Id" type="hidden"/>
+                    <div class="form-group">
+                        <label asp-for="Category.Name" class="control-label"></label>:
+                        <input asp-for="Category.Name" class="form-control"/>
+                        <span asp-validation-for="Category.Name" class="text-danger"></span>
+                    </div>
+                    <div class="align-items-center d-flex flex-row form-group gap-3">
+                        <input class="btn btn-primary" type="submit" value="ذخیره"/>
+                        <div>
+                            <a asp-page="./Index">بازگشت به لیست</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-4">
+
+        </div>
+    </div>
+</div>

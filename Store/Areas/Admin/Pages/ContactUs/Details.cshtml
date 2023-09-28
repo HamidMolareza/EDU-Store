@@ -1,0 +1,48 @@
+@page
+@model Store.Areas.Admin.Pages.ContactUs.DetailsModel
+
+@{
+    ViewData["Title"] = $"پیام شماره {Model.Message.Id}";
+}
+
+<div class="card card-info">
+    <div class="card-header no-border p-2 text-center" style="font-size: 1.2rem">
+        @ViewData["Title"]
+    </div>
+    <div class="card-body">
+        <div>
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Message.Name)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Message.Name)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Message.Email)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Message.Email)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Message.Title)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Message.Title)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Message.Message)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Message.Message)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <form asp-area="Admin" asp-page="./Index" asp-route-id="@Model.Message.Id" method="post">
+                <input class="btn btn-danger" type="submit" value="حذف پیام"/> |
+                <a asp-page="./Index">بازگشت به لیست</a>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+@page
+@using Store.Models
+@model Store.Areas.Admin.Pages.ContactUs.IndexModel
+
+@{
+    ViewData["Title"] = "پیام‌ها";
+}
+
+<div class="card m-auto">
+    <div class="card-header p-2 text-center" style="font-size: 1.4rem">
+        @ViewData["Title"]
+    </div>
+    <div class="card-body">
+        <table class="table table-mobile-responsive">
+            <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items[0].Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items[0].Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items[0].Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items[0].Message)
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Items) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Message)
+                    </td>
+                    <td>
+                        <form asp-route-id="@item.Id" method="post">
+                            <a asp-page="./Details" asp-route-id="@item.Id">مشاهده پیام</a> |
+                            <input class="btn btn-link p-0 text-danger text-decoration-none" type="submit" value="حذف"/>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        @{
+            var paginationModel = new Pagination {
+                PageIndex = Model.PageIndex,
+                PageLimit = Model.PageLimit,
+                TotalItems = Model.TotalItems,
+                IsValidPage = Model.IsValidPage,
+                MainPageLink = "./Index",
+            };
+        }
+        <partial model="@paginationModel" name="_Pagination"/>
+    </div>
+</div>
