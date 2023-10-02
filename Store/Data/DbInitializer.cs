@@ -147,6 +147,7 @@ public static class DbInitializer {
             new() { Name = "خوراکی‌ها" },
             new() { Name = "ابزارهای باغبانی" },
             new() { Name = "ویژه" },
+            new() { Name = "پر از خالی" },
         };
         context.Categories.AddRange(categories);
 
