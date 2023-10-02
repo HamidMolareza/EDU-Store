@@ -74,7 +74,15 @@ public class ChangePasswordModel : PageModel {
             await _userManager.ChangePasswordAsync(user, Input.OldPassword, Input.NewPassword);
         if (!changePasswordResult.Succeeded) {
             foreach (var error in changePasswordResult.Errors) {
-                ModelState.AddModelError(string.Empty, error.Description);
+                Console.WriteLine(error.Code);
+                switch (error.Code) {
+                    case "PasswordMismatch":
+                        ModelState.AddModelError(string.Empty, "رمز عبور قبلی درست نیست.");
+                        break;
+                    default:
+                        ModelState.AddModelError(string.Empty, error.Description);
+                        break;
+                }
             }
 
             return Page();

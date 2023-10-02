@@ -4,17 +4,16 @@
     ViewData["Title"] = "اطلاعات شخصی";
 }
 
-<h3>@ViewData["Title"]</h3>
-
-<div class="row">
-    <div class="col-md-6">
-        <p>اکانت شما شامل اطلاعات شخصی‌ای هستش که به ما دادین. در این صفحه می‌تونید این اطلاعات رو حذف کنید.</p>
+<div class="card m-auto" style="max-width: 600px">
+    <div class="bg-primary card-header py-3 text-center text-white" style="font-size: 1.1rem">
+        @ViewData["Title"]
+    </div>
+    <div class="card-body p-4 py-5">
+        <p>اکانت شما شامل اطلاعات شخصی‌ای هستش که به ما دادین. در این صفحه می‌تونید این اطلاعات را حذف کنید.</p>
         <p>
             <strong>حذف این اطلاعات دائمی و غیرقابل بارگشت خواهد بود. پس درآینده نمی‌تونید این اطلاعات رو بازیابی کنید.</strong>
         </p>
-        <p>
-            <a asp-page="DeletePersonalData" class="btn btn-danger" id="delete">حذف اطلاعات</a>
-        </p>
+        <a asp-page="DeletePersonalData" class="btn btn-danger" id="delete">حذف اطلاعات</a>
     </div>
 </div>
 

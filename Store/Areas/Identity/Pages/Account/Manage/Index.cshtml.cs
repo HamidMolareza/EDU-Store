@@ -18,27 +18,19 @@ public class IndexModel : PageModel {
         _signInManager = signInManager;
     }
 
-    [Display(Name = "نام کاربری")] public string Username { get; set; }
-
     [TempData] public string StatusMessage { get; set; }
 
+    [Display(Name = "نام کاربری")] public string Username { get; set; }
     [BindProperty] public InputModel Input { get; set; }
 
     public class InputModel {
         [Phone(ErrorMessage = "{0} درست نیست.")]
         [Display(Name = "شماره تلفن")]
         public string PhoneNumber { get; set; }
-    }
 
-    private async Task LoadAsync(IdentityUser user) {
-        var userName    = await _userManager.GetUserNameAsync(user);
-        var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-
-        Username = userName;
-
-        Input = new InputModel {
-            PhoneNumber = phoneNumber
-        };
+        [EmailAddress(ErrorMessage = "{0} معتبر نیست")]
+        [Display(Name = "ایمیل")]
+        public string Email { get; set; }
     }
 
     public async Task<IActionResult> OnGetAsync() {
@@ -52,6 +44,15 @@ public class IndexModel : PageModel {
         return Page();
     }
 
+    private async Task LoadAsync(IdentityUser user) {
+        Username = await _userManager.GetUserNameAsync(user);
+
+        Input = new InputModel {
+            PhoneNumber = await _userManager.GetPhoneNumberAsync(user),
+            Email       = await _userManager.GetEmailAsync(user)
+        };
+    }
+
     public async Task<IActionResult> OnPostAsync() {
         var user = await _userManager.GetUserAsync(User);
         if (user == null) {
@@ -62,6 +63,15 @@ public class IndexModel : PageModel {
         if (!ModelState.IsValid) {
             await LoadAsync(user);
             return Page();
+        }
+
+        var email = await _userManager.GetEmailAsync(user);
+        if (Input.Email != email) {
+            var setEmailResult = await _userManager.SetEmailAsync(user, Input.Email);
+            if (!setEmailResult.Succeeded) {
+                StatusMessage = "در هنگام به روز رسانی ایمیل خطایی رخ داده است";
+                return RedirectToPage();
+            }
         }
 
         var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
