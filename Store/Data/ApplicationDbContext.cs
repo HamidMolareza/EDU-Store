@@ -13,19 +13,12 @@ public class ApplicationDbContext : IdentityDbContext {
     public DbSet<Product> Products { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<ProductCategory> ProductCategories { get; set; }
+    public DbSet<Cart> Carts { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<ProductCategory>()
             .HasKey(productCategory => new { productCategory.CategoryId, productCategory.ProductId });
-        // modelBuilder.Entity<ProductCategory>()
-        //     .HasOne(productCategory => productCategory.Category)
-        //     .WithMany(category => category.ProductCategories)
-        //     .HasForeignKey(productCategory => productCategory.CategoryId);
-        // modelBuilder.Entity<ProductCategory>()
-        //     .HasOne(productCategory => productCategory.Product)
-        //     .WithMany(product => product.Category)
-        //     .HasForeignKey(productCategory => productCategory.ProductId);
     }
 }

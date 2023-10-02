@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Store.Data;
 
-namespace Store.Extensions;
+namespace Store.Utilities;
 
 public static class StartupExtensions {
     public static IServiceCollection AddDatabase(this IServiceCollection services, bool isDevelopment,

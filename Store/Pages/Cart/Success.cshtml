@@ -1,0 +1,21 @@
+@page
+@model Store.Pages.Cart.Success
+
+@{
+    ViewData["Title"] = "سفارش‌ها ثبت شد";
+}
+
+<div class="card m-auto mt-5 text-center" style="max-width: 600px">
+    <div class="bg-success card-header p-4 text-white" style="font-size: 1.4rem">
+        سفارش‌های شما با موفقیت ثبت شدن
+    </div>
+    <div class="card-body my-3">
+        <p class="card-text mb-4">
+            تک تک سفارش‌های شما ثبت شدن و به زودی به دستتون میرسن.
+            <br/>
+            از اینکه به ما اعتماد کردین بسیار ممنونیم.
+        </p>
+
+        <a asp-area="" asp-page="/Index" class="btn btn-primary">بازگشت به صفحه اصلی</a>
+    </div>
+</div>

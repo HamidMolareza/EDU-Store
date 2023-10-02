@@ -43,12 +43,33 @@
         </div>
     </div>
     <div class="align-items-center d-flex flex-column gap-2 mt-5">
-        <span style="color: #428bca; font-size: 1.2rem">@Model.ProductModel.Price تومان</span>
-        <button class="btn btn-primary d-flex gap-2 justify-content-center m-auto" href="#">
-            <span class="material-symbols material-symbols-fill">
-                shopping_cart
-            </span>
-            <span>افزودن به سبد خرید</span>
-        </button>
+        <span class="mb-2" style="color: #428bca; font-size: 1.2rem">@Model.ProductModel.Price تومان</span>
+        @if (Model.ProductModel.IsInCart) {
+            <form asp-page-handler="RemoveCart" method="post">
+                <input name="productId" type="hidden" value="@Model.ProductModel.Id"/>
+                <button class="btn btn-danger btn-l d-flex gap-2 justify-content-center m-auto" type="submit">
+                    <span class="material-symbols material-symbols-fill">
+                        shopping_cart
+                    </span>
+                    <span>حذف از سبد خرید</span>
+                </button>
+            </form>
+        }
+        else {
+            @if (Model.ProductModel.StockQuantity > 0) {
+                <form asp-page-handler="AddToCart" method="post">
+                    <input name="productId" type="hidden" value="@Model.ProductModel.Id"/>
+                    <button class="btn btn-l btn-primary d-flex gap-2 justify-content-center m-auto" type="submit">
+                        <span class="material-symbols material-symbols-fill">
+                            shopping_cart
+                        </span>
+                        <span>افزودن به سبد خرید</span>
+                    </button>
+                </form>
+            }
+            else {
+                <span class="text-secondary" style="font-size: 1.2rem">ناموجود</span>
+            }
+        }
     </div>
 </div>

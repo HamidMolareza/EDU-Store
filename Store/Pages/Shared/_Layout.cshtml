@@ -1,4 +1,17 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.EntityFrameworkCore
+@using Store.Data
+@inject ApplicationDbContext AppContext
+
+@{
+    var cartCount = 0;
+    var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+    if (userId is not null)
+        cartCount = await AppContext.Carts.CountAsync(cart => cart.UserId == userId && !cart.IsArchived);
+}
+
+<!DOCTYPE html>
 <html dir="rtl" lang="fa">
 <head>
     <meta charset="utf-8"/>
@@ -35,12 +48,14 @@
                     </li>
                 </ul>
                 <partial name="_LoginPartial"/>
-                <a class="align-items-center d-flex justify-content-md-center justify-content-start text-black" href="#" style="width: 40px; height: 40px">
+                <a asp-page="/Cart/Index" class="align-items-center d-flex justify-content-md-center justify-content-start text-black" style="width: 40px; height: 40px">
                     <div class="position-relative" style="top: 5px">
                         <span class="material-symbols material-symbols-outline">
                             shopping_cart
                         </span>
-                        <span class="badge bg-danger position-absolute text-white" style="bottom: -2px; right: -6px; font-size: 11px"></span>
+                        @if (cartCount > 0) {
+                            <span class="badge bg-danger position-absolute text-white" style="bottom: -2px; right: -6px; font-size: 11px">@cartCount</span>
+                        }
                     </div>
                 </a>
             </div>

@@ -1,0 +1,9 @@
+.div-order {
+    width: 300px;
+}
+
+@media (max-width: 768px) {
+    .div-order {
+        margin: 12px auto auto;
+    }
+}

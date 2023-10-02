@@ -1,6 +1,6 @@
 using Store.Areas.Identity;
 using Store.Data;
-using Store.Extensions;
+using Store.Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
 
