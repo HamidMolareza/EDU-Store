@@ -13,17 +13,20 @@ public class IndexModel : PaginationModel<IndexModel.CategoryModel> {
     }
 
     public class CategoryModel {
-        public int Id { get; set; }
+        [Display(Name = "آی‌دی")] public int Id { get; set; }
 
         [Display(Name = "نام دسته")] public string Name { get; set; }
+        [Display(Name = "تعداد محصولات")] public int NumOfProducts { get; set; }
     }
 
     public async Task OnGetAsync(int? p, int? limit) {
         var query = _context.Categories.AsNoTracking()
+            .Include(category => category.ProductCategories)
             .OrderByDescending(category => category.Id)
             .Select(item => new CategoryModel {
-                Id   = item.Id,
-                Name = item.Name
+                Id            = item.Id,
+                Name          = item.Name,
+                NumOfProducts = item.ProductCategories.Count
             });
         await LoadItemsAsync(query, p, limit ?? 10);
     }

@@ -13,11 +13,17 @@
         <p>
             <a asp-page="Create">ایجاد دسته جدید</a>
         </p>
-        <table class="table">
+        <table class="table text-center">
             <thead>
             <tr>
                 <th>
+                    @Html.DisplayNameFor(model => model.Items[0].Id)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Items[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items[0].NumOfProducts)
                 </th>
                 <th></th>
             </tr>
@@ -26,7 +32,15 @@
             @foreach (var item in Model.Items) {
                 <tr>
                     <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a asp-area="" asp-page="/Category/Index" asp-route-id="@item.Id">
+                            @Html.DisplayFor(modelItem => item.NumOfProducts)
+                        </a>
                     </td>
                     <td>
                         <a asp-page="./Edit" asp-route-id="@item.Id">ویرایش</a> |
