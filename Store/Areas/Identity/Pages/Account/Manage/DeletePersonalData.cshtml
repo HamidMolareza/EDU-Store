@@ -13,7 +13,7 @@
             <strong>حذف این اطلاعات دائمی و غیرقابل بازگشت خواهد بود.</strong>
         </p>
     </div>
-    <div class="card-body m-auto p-5" style="width: 400px">
+    <div class="card-body m-auto p-5" style="max-width: 400px; width: 100%;">
         <form id="delete-user" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             @if (Model.RequirePassword) {
