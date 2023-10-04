@@ -1,5 +1,4 @@
 app.db
 deploy.sh
 publish
-wwwroot/lib/*
 !wwwroot/lib/sidebar
