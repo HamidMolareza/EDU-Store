@@ -34,22 +34,18 @@ public class Index : PageModel {
     }
 
     public async Task<IActionResult> OnGetAsync(int? id) {
-        if (id is null) return NotFound();
+        var product = await LoadDataAsync(id);
+        if (product is null) return NotFound();
 
-        await LoadDataAsync((int)id);
-        if (ProductModel is null)
-            return NotFound();
-
+        ProductModel = product;
         return Page();
     }
 
-    private async Task LoadDataAsync(int id) {
+    private async Task<Product?> LoadDataAsync(int? id) {
+        if (id is null) return null;
         var product = await _context.Products.AsNoTracking()
                           .FirstOrDefaultAsync(product => product.Id == id);
-        if (product is null) {
-            ProductModel = null!;
-            return;
-        }
+        if (product is null) return null;
 
         var categories = await _context.ProductCategories.AsNoTracking()
                              .Include(pc => pc.Category)
@@ -59,7 +55,7 @@ public class Index : PageModel {
                                  Name = pc.Category.Name
                              }).ToListAsync();
 
-        ProductModel = new Product {
+        var productModel = new Product {
             Id            = product.Id,
             Name          = product.Name,
             Description   = product.Description,
@@ -72,10 +68,12 @@ public class Index : PageModel {
 
         var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (userId is not null) {
-            ProductModel.IsInCart =
+            productModel.IsInCart =
                 await _context.Carts.AnyAsync(cart =>
                     !cart.IsArchived && cart.UserId == userId && cart.ProductId == id);
         }
+
+        return productModel;
     }
 
     public async Task<IActionResult> OnPostAddToCart(int? productId) {
@@ -105,7 +103,8 @@ public class Index : PageModel {
         _context.Carts.Add(cart);
         await _context.SaveChangesAsync();
 
-        await LoadDataAsync((int)productId);
+        var productModel = await LoadDataAsync(productId);
+        ProductModel = productModel!;
         return RedirectToPage("./Index");
     }
 
@@ -127,7 +126,8 @@ public class Index : PageModel {
         _context.Carts.Remove(cart);
         await _context.SaveChangesAsync();
 
-        await LoadDataAsync((int)productId);
+        var productModel = await LoadDataAsync(productId);
+        ProductModel = productModel!;
         return RedirectToPage("./Index");
     }
 }
