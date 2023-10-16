@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Store.Data;
 using Store.Models;
+using Store.Utilities;
 
 namespace Store.Areas.Admin.Pages.Products;
 
@@ -14,6 +15,13 @@ public class EditModel : PageModel {
     public EditModel(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment) {
         _context            = context;
         _webHostEnvironment = webHostEnvironment;
+    }
+
+    private string? _returnUrl;
+
+    public string? ReturnUrl {
+        get => _returnUrl;
+        set => _returnUrl = Utility.SafeReturnUrl(value, Url);
     }
 
     [BindProperty] public ProductModel Product { get; set; } = default!;
@@ -57,7 +65,7 @@ public class EditModel : PageModel {
         public string? Description { get; set; }
     }
 
-    public async Task<IActionResult> OnGet(int? id) {
+    public async Task<IActionResult> OnGet(int? id, string? returnUrl) {
         if (id is null)
             return NotFound();
 
@@ -79,6 +87,7 @@ public class EditModel : PageModel {
         };
         await LoadCategoriesAsync();
 
+        ReturnUrl = returnUrl;
         return Page();
     }
 
@@ -90,7 +99,7 @@ public class EditModel : PageModel {
                          }).ToListAsync();
     }
 
-    public async Task<IActionResult> OnPostAsync() {
+    public async Task<IActionResult> OnPostAsync(string? returnUrl) {
         if (!ModelState.IsValid) {
             await LoadCategoriesAsync();
             return Page();
@@ -156,6 +165,6 @@ public class EditModel : PageModel {
         dbProduct.ProductCategories = productCategories;
 
         await _context.SaveChangesAsync();
-        return RedirectToPage("./Index");
+        return Utility.RedirectToReturnUrl(ReturnUrl, RedirectToPage("./Index"));
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Store.Data;
+using Store.Utilities;
 
 namespace Store.Areas.Admin.Pages.ContactUs;
 
@@ -11,6 +12,13 @@ public class DetailsModel : PageModel {
 
     public DetailsModel(ApplicationDbContext context) {
         _context = context;
+    }
+
+    private string? _returnUrl;
+
+    public string? ReturnUrl {
+        get => _returnUrl;
+        set => _returnUrl = Utility.SafeReturnUrl(value, Url);
     }
 
     public MessageModel Message { get; set; } = default!;
@@ -26,7 +34,7 @@ public class DetailsModel : PageModel {
         [Display(Name = "پیام")] public string Message { get; set; } = default!;
     }
 
-    public async Task<IActionResult> OnGetAsync(int? id) {
+    public async Task<IActionResult> OnGetAsync(int? id, string? returnUrl) {
         if (id is null)
             return NotFound();
 
@@ -42,6 +50,7 @@ public class DetailsModel : PageModel {
             Title   = message.Title
         };
 
+        ReturnUrl = returnUrl;
         return Page();
     }
 }

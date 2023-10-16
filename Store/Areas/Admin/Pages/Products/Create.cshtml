@@ -67,7 +67,12 @@
             <div class="align-items-center d-flex flex-row gap-2 mt-3">
                 <input class="btn btn-primary" type="submit" value="اضافه کردن"/> |
                 <div>
-                    <a asp-page="Index">بازگشت به لیست</a>
+                    @if (Model.ReturnUrl is null) {
+                        <a asp-page="./Index">بازگشت به لیست</a>
+                    }
+                    else {
+                        <a href="@Model.ReturnUrl">بازگشت به لیست</a>
+                    }
                 </div>
             </div>
         </form>

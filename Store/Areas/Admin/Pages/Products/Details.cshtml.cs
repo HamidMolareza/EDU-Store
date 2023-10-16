@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Store.Data;
+using Store.Utilities;
 
 namespace Store.Areas.Admin.Pages.Products;
 
@@ -11,6 +12,13 @@ public class DetailsModel : PageModel {
 
     public DetailsModel(ApplicationDbContext context) {
         _context = context;
+    }
+
+    private string? _returnUrl;
+
+    public string? ReturnUrl {
+        get => _returnUrl;
+        set => _returnUrl = Utility.SafeReturnUrl(value, Url);
     }
 
     public ProductModel Product { get; set; } = default!;
@@ -37,7 +45,7 @@ public class DetailsModel : PageModel {
         [Display(Name = "توضیحات")] public string? Description { get; set; }
     }
 
-    public async Task<IActionResult> OnGetAsync(int? id) {
+    public async Task<IActionResult> OnGetAsync(int? id, string? returnUrl) {
         if (id == null)
             return NotFound();
 
@@ -59,6 +67,7 @@ public class DetailsModel : PageModel {
             StockQuantity     = product.StockQuantity
         };
 
+        ReturnUrl = returnUrl;
         return Page();
     }
 }

@@ -54,7 +54,12 @@
         </div>
         <div>
             <a asp-page="./Edit" asp-route-id="@Model.Product?.Id">ویرایش</a> |
-            <a asp-page="./Index">بازگشت به لیست</a>
+            @if (Model.ReturnUrl is null) {
+                <a asp-page="./Index">بازگشت به لیست</a>
+            }
+            else {
+                <a href="@Model.ReturnUrl">بازگشت به لیست</a>
+            }
         </div>
 
     </div>

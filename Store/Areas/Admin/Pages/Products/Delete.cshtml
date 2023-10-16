@@ -56,7 +56,12 @@
             <form method="post">
                 <input asp-for="Product.Id" type="hidden"/>
                 <input class="btn btn-danger" type="submit" value="حذف محصول"/> |
-                <a asp-page="./Index">بازگشت به لیست</a>
+                @if (Model.ReturnUrl is null) {
+                    <a asp-page="./Index">بازگشت به لیست</a>
+                }
+                else {
+                    <a href="@Model.ReturnUrl">بازگشت به لیست</a>
+                }
             </form>
         </div>
 

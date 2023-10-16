@@ -41,7 +41,12 @@
         <div>
             <form asp-area="Admin" asp-page="./Index" asp-route-id="@Model.Message.Id" method="post">
                 <input class="btn btn-danger" type="submit" value="حذف پیام"/> |
-                <a asp-page="./Index">بازگشت به لیست</a>
+                @if (Model.ReturnUrl is null) {
+                    <a asp-page="./Index">بازگشت به لیست</a>
+                }
+                else {
+                    <a href="@Model.ReturnUrl">بازگشت به لیست</a>
+                }
             </form>
         </div>
     </div>

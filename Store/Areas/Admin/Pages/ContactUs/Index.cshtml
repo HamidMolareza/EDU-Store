@@ -52,7 +52,7 @@
                     </td>
                     <td>
                         <form asp-route-id="@item.Id" method="post">
-                            <a asp-page="./Details" asp-route-id="@item.Id">مشاهده پیام</a> |
+                            <a-return-url asp-page="./Details" asp-route-id="@item.Id" request-path="@Request.Path" request-query="@Request.QueryString">مشاهده پیام</a-return-url> |
                             <input class="btn btn-link p-0 text-danger text-decoration-none" type="submit" value="حذف"/>
                         </form>
                     </td>
