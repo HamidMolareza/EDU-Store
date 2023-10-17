@@ -783,6 +783,7 @@ fieldset:disabled a.btn-sidebar {
     -o-transition: all 0.3s;
     transition: all 0.3s;
     position: relative;
+    top: 0
 }
 
 @media (max-width: 768px) {
@@ -866,12 +867,18 @@ fieldset:disabled a.btn-sidebar {
 #sidebar .custom-menu {
     display: inline-block;
     position: absolute;
-    top: 20px;
+    top: 100px;
     left: 0;
     margin-left: -20px;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
+}
+
+@media (min-width: 768px) {
+    #sidebar .custom-menu {
+        top: 25px;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
