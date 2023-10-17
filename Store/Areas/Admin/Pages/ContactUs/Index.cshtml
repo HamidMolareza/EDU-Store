@@ -50,9 +50,9 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Message)
                     </td>
-                    <td>
+                    <td class="d-flex flex-row gap-1">
+                        <button class="btn btn-link p-0 text-decoration-none" onclick="showDetail(@item.Id)">مشاهده پیام</button> |
                         <form asp-route-id="@item.Id" method="post">
-                            <a-return-url asp-page="./Details" asp-route-id="@item.Id" request-path="@Request.Path" request-query="@Request.QueryString">مشاهده پیام</a-return-url> |
                             <input class="btn btn-link p-0 text-danger text-decoration-none" type="submit" value="حذف"/>
                         </form>
                     </td>
@@ -72,3 +72,46 @@
         <partial model="@paginationModel" name="_Pagination"/>
     </div>
 </div>
+
+@* Modal *@
+<div aria-hidden="true" aria-labelledby="ModalDetailLabel" class="fade modal" id="ModalDetail" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="fs-5 modal-title" id="ModalDetailLabel"></h1>
+                <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+    function showDetail(id) {
+        $("#ModalDetail .modal-body").text("درحال بارگذاری...");
+        $("#ModalDetailLabel").text(`پیام شماره ${id}`);
+        $("#ModalDetail").modal('show');
+    
+        fetch(`ContactUs/Details?id=${id}`, {
+                redirect: "manual"
+            })
+            .then(res =>{
+                if (res.type === 'opaqueredirect') throw new Error("لازمه دوباره وارد بشید.");
+                if (res.status === 404) throw new Error("اطلاعاتی یافت نشد!");
+                if (res.status !== 200) throw new Error("یک خطای غیرمنتظره رخ داده است!");
+                return res;
+            })
+            .then(res => res.text())
+            .then(html => {
+                $("#ModalDetail .modal-body").html(html);
+            }).catch(err=>{
+                $("#ModalDetail .modal-body").html(`
+                    <h6 class="text-danger">خطایی رخ داده است!</h6>
+                    <p class="mb-0">${err.message}</p>
+                `);
+            })
+    }
+    </script>
+}
