@@ -3,7 +3,7 @@
         Layout = parentLayout.ToString();
     }
     else {
-        // Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+        Layout = "/Pages/Shared/_Layout.cshtml";
     }
 }
 
@@ -59,22 +59,7 @@
     </div>
 </div>
 
-
-@* <div class="container div_border p-4" style="min-height: 500px"> *@
-@*     <h1>مدیریت اکانت</h1> *@
-@* *@
-@*     <div> *@
-@*         <hr/> *@
-@*         <div class="row"> *@
-@*             <div class="col-md-3"> *@
-@*             </div> *@
-@*             <div class="col-md-9 px-4"> *@
-@*                 @RenderBody() *@
-@*             </div> *@
-@*         </div> *@
-@*     </div> *@
-@* </div> *@
-
 @section Scripts {
-    @RenderSection("Scripts", required: false)
+    <partial name="_ValidationScriptsPartial"/>
+    @await RenderSectionAsync("Scripts", required: false);
 }

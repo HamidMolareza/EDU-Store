@@ -19,7 +19,9 @@ public class EditModel : PageModel {
     public class CategoryModel {
         public int Id { get; set; }
 
-        [Display(Name = "نام دسته")] public string Name { get; set; }
+        [Display(Name = "نام دسته")]
+        [Required(ErrorMessage = "پر کردن {0} ضروری است.")]
+        public string Name { get; set; }
     }
 
     public async Task<IActionResult> OnGetAsync(int? id) {
