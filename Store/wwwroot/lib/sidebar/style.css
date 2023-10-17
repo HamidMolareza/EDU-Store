@@ -1,66 +1,3 @@
-a {
-    text-decoration: none;
-    background-color: transparent;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-a:not([href]):not([tabindex]) {
-    color: inherit;
-    text-decoration: none;
-}
-
-a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
-    color: inherit;
-    text-decoration: none;
-}
-
-a:not([href]):not([tabindex]):focus {
-    outline: 0;
-}
-
-.container {
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-@media (min-width: 576px) {
-    .container {
-        max-width: 540px;
-    }
-}
-
-@media (min-width: 768px) {
-    .container {
-        max-width: 720px;
-    }
-}
-
-@media (min-width: 992px) {
-    .container {
-        max-width: 960px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1140px;
-    }
-}
-
-.container-fluid {
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .btn-sidebar {
     display: inline-block;
     font-weight: 400;
@@ -837,33 +774,6 @@ fieldset:disabled a.btn-sidebar {
     pointer-events: none;
 }
 
-a.close.disabled {
-    pointer-events: none;
-}
-
-.clearfix::after {
-    display: block;
-    clear: both;
-    content: "";
-}
-
-a {
-    -webkit-transition: .3s all ease;
-    -o-transition: .3s all ease;
-    transition: .3s all ease;
-}
-
-a:hover, a:focus {
-    text-decoration: none !important;
-    outline: none !important;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-
-.wrapper {
-    width: 100%;
-}
-
 #sidebar {
     min-width: 270px;
     max-width: 270px;
@@ -1009,10 +919,6 @@ a:hover, a:focus {
     border-color: transparent !important;
 }
 
-a[data-toggle="collapse"] {
-    position: relative;
-}
-
 @media (max-width: 991.98px) {
     #sidebarCollapse span {
         display: none;
@@ -1051,6 +957,6 @@ ul.sidebar-items li > a > span, ul.sidebar-items li > a > i {
     margin-left: 8px;
 }
 
-#sidebar .custom-menu .btn-sidebar.btn-sidebar-primary:after{
+#sidebar .custom-menu .btn-sidebar.btn-sidebar-primary:after {
     background-color: #212529;
 }

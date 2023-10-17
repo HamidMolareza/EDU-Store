@@ -7,6 +7,10 @@
     }
 }
 
+@section Css {
+    <link asp-append-version="true" href="~/lib/sidebar/style.css" rel="stylesheet"/>
+}
+
 <div class="align-items-stretch d-flex wrapper">
     <nav class="bg-dark" id="sidebar">
         <div class="custom-menu">
@@ -61,5 +65,7 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial"/>
-    @await RenderSectionAsync("Scripts", required: false);
+    <script asp-append-version="true" src="~/lib/sidebar/main.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
 }
