@@ -50,11 +50,13 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Message)
                     </td>
-                    <td class="d-flex flex-row gap-1">
-                        <button class="btn btn-link p-0 text-decoration-none" onclick="showDetail(@item.Id)">مشاهده پیام</button> |
-                        <form asp-route-id="@item.Id" method="post">
-                            <input class="btn btn-link p-0 text-danger text-decoration-none" type="submit" value="حذف"/>
-                        </form>
+                    <td>
+                        <div class="d-flex flex-row gap-1">
+                            <button class="btn btn-link p-0 text-decoration-none" onclick="showDetail(@item.Id)">مشاهده پیام</button> |
+                            <form asp-route-id="@item.Id" method="post">
+                                <input class="btn btn-link p-0 text-danger text-decoration-none" type="submit" value="حذف"/>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             }
