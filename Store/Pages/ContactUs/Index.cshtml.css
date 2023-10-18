@@ -1,0 +1,38 @@
+.div-gradiant {
+    background-image: linear-gradient(270deg, #0a96e7 0%, #003f9d 100%);
+    background-color: transparent;
+}
+
+@media (min-width: 768px) {
+    .div-title {
+        max-width: 380px
+    }
+}
+
+.div-content {
+    padding: 40px 0;
+}
+
+@media (min-width: 768px) {
+    .div-content {
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+        border-radius: 10px 0 10px 10px;
+        padding: 80px 0 90px 0;
+    }
+}
+
+.div-highlight {
+    background-image: url("assets/pattern-bg-2.png");
+    background-color: #0d729a;
+}
+
+.overlay-div{
+    margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+    .overlay-div{
+        max-width: 600px;
+        top: -30px
+    }
+}

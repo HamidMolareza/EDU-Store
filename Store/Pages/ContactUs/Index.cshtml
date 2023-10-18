@@ -5,36 +5,109 @@
     ViewData["Title"] = "تماس با ما";
 }
 
-<div class="card m-auto margin-from-footer mt-3" style="max-width: 600px">
-    <h5 class="bg-primary card-header py-3 text-center text-white">@ViewData["Title"]</h5>
-    <div class="card-body">
-        <form class="d-flex flex-column gap-3" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Input.Name" class="control-label"></label>
-                <input asp-for="Input.Name" class="form-control"/>
-                <span asp-validation-for="Input.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.Email" class="control-label"></label>
-                <input asp-for="Input.Email" class="form-control"/>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.Title" class="control-label"></label>
-                <input asp-for="Input.Title" class="form-control"/>
-                <span asp-validation-for="Input.Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.Message" class="control-label"></label>
-                @Html.TextAreaFor(model => model.Input.Message, new { @class = "form-control", @rows = 4 })
-                <span asp-validation-for="Input.Message" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input class="btn btn-primary" type="submit" value="ارسال پیام"/>
-            </div>
-        </form>
+<div class="m-auto margin-from-footer pt-3 pt-md-5" style="max-width: 900px">
+
+    <div class="div-gradiant div-title px-4 py-1 text-center text-md-start text-white" style="border-radius: 10px 10px 0 0;">
+        <h1 class="mt-2" style="font-size: 1.4rem;">تماس با ما</h1>
+        <p>راه های ارتباطی و آدرس شرکت</p>
     </div>
+
+    <div class="align-items-center bg-white d-flex div-content justify-content-center px-md-5">
+        <div class="d-flex flex-column gap-5 px-md-5 w-100">
+
+            @* Address *@
+            <div class="align-items-center d-flex flex-row justify-content-around">
+                <div class="align-items-center d-flex flex-row gap-2" style="font-size: 1.1rem; width: 200px;">
+                    <span class="material-symbols material-symbols-outlined" style="font-size: 1.9rem">
+                        location_on
+                    </span>
+                    <span>آدرس فروشگاه:</span>
+                </div>
+                <div class="px-5 py-2 rounded-3 text-center" style="background-color: #F7F7F7; width: 200px">
+                    همدان
+                </div>
+            </div>
+
+            @* Phone *@
+            <div class="align-items-center d-flex flex-row justify-content-around">
+                <div class="align-items-center d-flex flex-row gap-2" style="font-size: 1.1rem; width: 200px;">
+                    <span class="material-symbols material-symbols-outlined" style="font-size: 1.9rem">
+                        call
+                    </span>
+                    <span>شماره تلفن:</span>
+                </div>
+                <div class="px-5 py-2 rounded-3 text-center" style="background-color: #F7F7F7; width: 200px; direction: ltr">
+                    +۹۸۲۲۲۲۲۲۲۲۲۲
+                </div>
+            </div>
+
+            @* Email *@
+            <div class="align-items-center d-flex flex-row justify-content-around">
+                <div class="align-items-center d-flex flex-row gap-2" style="font-size: 1.1rem; width: 200px;">
+                    <span class="material-symbols material-symbols-outlined" style="font-size: 1.9rem">
+                        mail
+                    </span>
+                    <span>ایمیل:</span>
+                </div>
+                <div class="px-5 py-2 rounded-3 text-center" style="background-color: #F7F7F7; width: 200px">
+                    hello@store.com
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    @* Socials *@
+    <div class="div-highlight m-auto overlay-div position-relative rounded-3">
+        <div class="div-gradiant h-100 opacity-50 position-absolute rounded-3 top-0 w-100" style="right: 0"></div>
+        <div class="align-items-center d-flex flex-row justify-content-around p-4 position-relative text-white">
+            <span style="font-size: 1.2rem">ما را در فضای مجازی دنبال کنید</span>
+            <div class="d-flex flex-row gap-3">
+                <a href="#">
+                    <img alt="X" class="rounded-3" height="40px" src="assets/social-x.png" width="40px"/>
+                </a>
+                <a href="#">
+                    <img alt="X" class="rounded-3" height="40px" src="assets/social-pintrest.png" width="40px"/>
+                </a>
+                <a href="#">
+                    <img alt="X" class="rounded-3" height="40px" src="assets/social-youtube.svg" width="40px"/>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card m-auto margin-from-footer mt-4" style="max-width: 600px">
+        <h5 class="card-header div-gradiant py-3 text-center text-white">فرم ارتباط با ما</h5>
+        <div class="card-body">
+            <form class="d-flex flex-column gap-3" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.Name" class="control-label"></label>
+                    <input asp-for="Input.Name" class="form-control"/>
+                    <span asp-validation-for="Input.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Email" class="control-label"></label>
+                    <input asp-for="Input.Email" class="form-control"/>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Title" class="control-label"></label>
+                    <input asp-for="Input.Title" class="form-control"/>
+                    <span asp-validation-for="Input.Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Message" class="control-label"></label>
+                    @Html.TextAreaFor(model => model.Input.Message, new { @class = "form-control", @rows = 4 })
+                    <span asp-validation-for="Input.Message" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="ارسال پیام"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </div>
 
 @section Scripts {
