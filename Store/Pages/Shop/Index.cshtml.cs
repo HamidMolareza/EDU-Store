@@ -39,7 +39,7 @@ public class Index : PaginationModel<Index.Product> {
             new() {
                 Id           = -1,
                 Name         = "همه",
-                ProductCount = await _context.Categories.CountAsync(),
+                ProductCount = await _context.Products.CountAsync(),
                 Active       = categoryId < 0
             }
         };
