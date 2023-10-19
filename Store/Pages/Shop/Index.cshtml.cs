@@ -18,6 +18,7 @@ public class Index : PaginationModel<Index.Product> {
         public int Id { get; set; }
         public string Name { get; set; } = default!;
         public int ProductCount { get; set; }
+        public bool Active { get; set; }
     }
 
     public class Product {
@@ -38,7 +39,8 @@ public class Index : PaginationModel<Index.Product> {
             new() {
                 Id           = -1,
                 Name         = "همه",
-                ProductCount = await _context.Categories.CountAsync()
+                ProductCount = await _context.Categories.CountAsync(),
+                Active       = categoryId < 0
             }
         };
         Categories.AddRange(
@@ -48,7 +50,8 @@ public class Index : PaginationModel<Index.Product> {
                 .Select(c => new Category {
                     Id           = c.Id,
                     Name         = c.Name,
-                    ProductCount = c.ProductCategories.Count(pc => pc.CategoryId == c.Id)
+                    ProductCount = c.ProductCategories.Count(pc => pc.CategoryId == c.Id),
+                    Active       = c.Id == categoryId
                 }).Where(c => c.ProductCount > 0)
                 .ToListAsync()
         );

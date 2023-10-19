@@ -358,3 +358,7 @@ a[data-toggle="collapse"] {
 .link-secondary:hover {
     color: var(--bs-primary) !important;
 }
+
+.link-active {
+    color: var(--bs-primary) !important;
+}

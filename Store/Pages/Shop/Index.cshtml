@@ -12,7 +12,7 @@
             <div class="card-body">
                 <div class="d-flex flex-column gap-3">
                     @foreach (var category in Model.Categories) {
-                        <a asp-page="./Index" asp-route-categoryId="@category.Id" class="d-flex flex-row justify-content-between link-secondary">
+                        <a asp-page="./Index" asp-route-categoryId="@category.Id" class="d-flex flex-row justify-content-between @(category.Active ? "link-active" : "link-secondary")">
                             <span>@category.Name</span>
                             <span>@category.ProductCount</span>
                         </a>
