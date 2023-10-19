@@ -32,7 +32,8 @@ public class Index : PaginationModel<Index.Product> {
         public string Image { get; set; } = default!;
     }
 
-    public async Task OnGetAsync(int? p = 1, int? limit = 6) {
+    public async Task OnGetAsync(int? categoryId, int? p = 1, int? limit = 6) {
+        categoryId ??= -1;
         Categories = new List<Category> {
             new() {
                 Id           = -1,
@@ -52,8 +53,15 @@ public class Index : PaginationModel<Index.Product> {
                 .ToListAsync()
         );
 
-        var productsQuery = _context.Products.AsNoTracking()
-            .OrderBy(product => product.Id)
+        var query = _context.Products.AsNoTracking()
+            .Include(product => product.ProductCategories).AsQueryable();
+
+        if (categoryId > 0) {
+            query = query
+                .Where(product => product.ProductCategories.Any(pc => pc.CategoryId == categoryId));
+        }
+
+        var productQuery = query.OrderBy(product => product.Id)
             .Select(product => new Product {
                 Id            = product.Id,
                 Name          = product.Name,
@@ -62,6 +70,7 @@ public class Index : PaginationModel<Index.Product> {
                 StockQuantity = product.StockQuantity,
                 Price         = product.Price
             });
-        await LoadItemsAsync(productsQuery, p, limit);
+
+        await LoadItemsAsync(productQuery, p, limit);
     }
 }

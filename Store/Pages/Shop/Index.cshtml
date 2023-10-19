@@ -5,7 +5,7 @@
 
 <div class="m-auto margin-from-footer pt-4 px-5">
 
-    <div class="align-items-center align-items-md-start d-flex flex-column flex-md-row gap-3 justify-content-center">
+    <div class="align-items-center align-items-md-start d-flex flex-column flex-md-row gap-3">
         @* Categories *@
         <div class="card mw-100 position-md-sticky shadow-sm text-secondary top-0 top-md-8" style="width: 250px; min-width: 240px; height: fit-content; top: 32px">
             <div class="bg-primary card-header text-center text-white" style="font-size: 1.2rem">دسته بندی محصولات</div>
@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <div>
+        <div class="w-100">
             <div class="d-flex flex-wrap gap-5 gap-md-4 justify-content-center">
                 @foreach (var product in Model.Items) {
                     <a asp-page="/Product/Index" asp-route-id="@product.Id" class="card-product d-flex flex-column rounded-3 rounded-3 shadow text-center" style="width: 240px">
