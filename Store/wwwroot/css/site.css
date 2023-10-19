@@ -286,3 +286,26 @@ a:hover, a:focus {
 a[data-toggle="collapse"] {
     position: relative;
 }
+
+@media (min-width: 768px) {
+    .mw-md-unset{
+        max-width: unset !important;
+    }
+}
+
+.div-gradiant {
+    background-image: linear-gradient(270deg, #0a96e7 0%, #003f9d 100%);
+}
+
+.div-highlight {
+    background-image: url("/img/assets/pattern-bg-2.png");
+    background-color: #0d729a;
+}
+
+.div-wrapper{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

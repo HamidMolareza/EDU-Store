@@ -1,8 +1,3 @@
-.div-gradiant {
-    background-image: linear-gradient(270deg, #0a96e7 0%, #003f9d 100%);
-    background-color: transparent;
-}
-
 @media (min-width: 768px) {
     .div-title {
         max-width: 380px
@@ -21,17 +16,12 @@
     }
 }
 
-.div-highlight {
-    background-image: url("img/assets/pattern-bg-2.png");
-    background-color: #0d729a;
-}
-
-.overlay-div{
+.overlay-div {
     margin-top: 16px;
 }
 
 @media (min-width: 768px) {
-    .overlay-div{
+    .overlay-div {
         max-width: 600px;
         top: -30px
     }
