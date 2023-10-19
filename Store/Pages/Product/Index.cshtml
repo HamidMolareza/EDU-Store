@@ -1,10 +1,10 @@
 @page "{id?}"
 @model Store.Pages.Product.Index
 
-<div class="card m-auto margin-from-footer mt-2 mt-md-4 p-4" style="max-width: 1000px;">
+<div class="m-auto margin-from-footer mt-2 mt-md-4 p-4" style="max-width: 1000px;">
     <div class="row">
         <div class="align-items-center col-12 col-md-6 d-flex justify-content-center mb-4">
-            <img alt="@Model.ProductModel.Name" class="image-highlight" height="300px" src="@Model.ProductModel.ImageUrl" style="width: 100%;" width="400px"/>
+            <img alt="@Model.ProductModel.Name" class="image-highlight mw-100" src="@Model.ProductModel.ImageUrl" style="max-height: 300px" width="380px"/>
         </div>
         <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
             <h2>@Model.ProductModel.Name</h2>
@@ -17,7 +17,7 @@
                     </span>
                     @Html.DisplayNameFor(model => model.ProductModel.Categories):
                     @foreach (var category in Model.ProductModel.Categories) {
-                        <a asp-page="/Category/Index" asp-route-id="@category.Id">@category.Name، </a>
+                        <a asp-page="/Shop/Index" asp-route-categoryId="@category.Id">@category.Name، </a>
                     }
                 </div>
                 <div class="align-items-center d-flex gap-1">
@@ -42,8 +42,8 @@
             </div>
         </div>
     </div>
-    <div class="align-items-center d-flex flex-column gap-2 mt-5">
-        <span class="mb-2" style="color: #428bca; font-size: 1.2rem">@Model.ProductModel.Price تومان</span>
+    <div class="align-items-center d-flex flex-column gap-2 mt-4 mt-md-3">
+        <span class="mb-1" style="color: #428bca; font-size: 1.2rem">@Model.ProductModel.Price تومان</span>
         @if (Model.ProductModel.IsInCart) {
             <form asp-page-handler="RemoveCart" method="post">
                 <input name="productId" type="hidden" value="@Model.ProductModel.Id"/>
