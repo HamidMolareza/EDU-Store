@@ -108,12 +108,12 @@ td {
 }
 
 .card-product {
-    transition: transform 0.2s ease-in-out;
+    border: 1px solid transparent;
+    transition: border 0.2s ease;
 }
 
 .card-product:hover {
-    border-color: #0d6efd;
-    transform: scale(1.01)
+    border: 1px solid #0d6efd;
 }
 
 .navbar {
@@ -288,7 +288,7 @@ a[data-toggle="collapse"] {
 }
 
 @media (min-width: 768px) {
-    .mw-md-unset{
+    .mw-md-unset {
         max-width: unset !important;
     }
 }
@@ -302,10 +302,59 @@ a[data-toggle="collapse"] {
     background-color: #0d729a;
 }
 
-.div-wrapper{
+.div-wrapper {
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     right: 0;
+}
+
+@media (min-width: 768px) {
+    .position-md-sticky {
+        position: sticky !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .top-md-1 {
+        top: 4px !important;
+    }
+
+    .top-md-2 {
+        top: 8px !important;
+    }
+
+    .top-md-3 {
+        top: 12px !important;
+    }
+
+    .top-md-4 {
+        top: 16px !important;
+    }
+
+    .top-md-5 {
+        top: 20px !important;
+    }
+
+    .top-md-6 {
+        top: 24px !important;
+    }
+
+    .top-md-7 {
+        top: 28px !important;
+    }
+
+    .top-md-8 {
+        top: 32px !important;
+    }
+}
+
+.link-secondary {
+    color: var(--bs-secondary) !important;
+    transition: color 0.2s ease;
+}
+
+.link-secondary:hover {
+    color: var(--bs-primary) !important;
 }

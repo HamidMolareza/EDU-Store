@@ -1,0 +1,55 @@
+@page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Store.Models
+@model Store.Pages.Shop.Index
+
+<div class="m-auto margin-from-footer pt-4 px-5">
+
+    <div class="align-items-center align-items-md-start d-flex flex-column flex-md-row gap-3 justify-content-center">
+        @* Categories *@
+        <div class="card mw-100 position-md-sticky shadow-sm text-secondary top-0 top-md-8" style="width: 250px; min-width: 240px; height: fit-content; top: 32px">
+            <div class="bg-primary card-header text-center text-white" style="font-size: 1.2rem">دسته بندی محصولات</div>
+            <div class="card-body">
+                <div class="d-flex flex-column gap-3">
+                    @foreach (var category in Model.Categories) {
+                        <a asp-page="./Index" asp-route-categoryId="@category.Id" class="d-flex flex-row justify-content-between link-secondary">
+                            <span>@category.Name</span>
+                            <span>@category.ProductCount</span>
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="d-flex flex-wrap gap-5 gap-md-4 justify-content-center">
+                @foreach (var product in Model.Items) {
+                    <a asp-page="/Product/Index" asp-route-id="@product.Id" class="card-product d-flex flex-column rounded-3 rounded-3 shadow text-center" style="width: 240px">
+                        <img alt="@product.Name" src="@product.Image" style="height: 200px; border-radius: 0.5rem 0.5rem 0 0"/>
+                        <div class="pb-4 px-3">
+                            <p class="mb-2 mt-3 text-dark" style="font-size: 1.1rem">@product.Name</p>
+                            <p class="text-secondary" style="font-size: 0.9rem">@product.Description</p>
+                            <p class="mb-0 text-dark">@Html.DisplayFor(m => product.Price) تومان</p>
+                            @if (product.StockQuantity < 10) {
+                                <span class="text-danger" style="font-size: 0.85rem">کمتر از @product.StockQuantity عدد باقی مانده است.</span>
+                            }
+                        </div>
+                    </a>
+                }
+            </div>
+            @{
+                var paginationModel = new Pagination {
+                    PageIndex = Model.PageIndex,
+                    PageLimit = Model.PageLimit,
+                    TotalItems = Model.TotalItems,
+                    IsValidPage = Model.IsValidPage,
+                    MainPageLink = "./Index",
+                };
+            }
+            <div class="d-flex justify-content-center  mt-4">
+                <partial model="@paginationModel" name="_Pagination"/>
+            </div>
+        </div>
+    </div>
+
+</div>
