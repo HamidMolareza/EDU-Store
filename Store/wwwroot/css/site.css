@@ -78,12 +78,14 @@ img {
     box-shadow: none;
     border-radius: unset;
     vertical-align: unset;
+    width: 47px;
+    height: 35px;
 }
 
 @media (max-width: 768px) {
     .app-logo {
-        width: 45px;
-        height: 45px;
+        width: 54px;
+        height: 40px;
     }
 }
 
