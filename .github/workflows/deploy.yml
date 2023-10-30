@@ -1,0 +1,27 @@
+name: Deploy ASP MVC project
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+
+      - name: Publish project
+        run: dotnet publish -c Release -o publish
+
+      - name: Login to server service
+        run: chabok login -u ${{ secrets.SERVER_SERVICE_USERNAME }} -t ${{ secrets.SERVER_SERVICE_TOKEN }}
+
+      - name: Deploy project
+        run: chabok deploy -p 'publish' -s 'dotnetcore-store'
