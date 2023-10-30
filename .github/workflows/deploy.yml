@@ -20,6 +20,9 @@ jobs:
       - name: Publish project
         run: dotnet publish -c Release -o publish
 
+      - name: Install chabok
+        run: npm install -g @chabokan.net/cli
+
       - name: Login to server service
         run: chabok login -u ${{ secrets.SERVER_SERVICE_USERNAME }} -t ${{ secrets.SERVER_SERVICE_TOKEN }}
 
