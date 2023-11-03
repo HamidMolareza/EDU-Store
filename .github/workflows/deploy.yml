@@ -19,7 +19,9 @@ jobs:
           dotnet-version: 7.0.x
 
       - name: Publish project
-        run: dotnet publish -c Release -o publish
+        run: |
+          dotnet publish -c Release -o publish
+          echo "Published Date: $(date "+%Y-%m-%d %H-%M-%S")" >> publish/published-date.txt
 
       - name: Install chabok
         run: npm install -g @chabokan.net/cli
