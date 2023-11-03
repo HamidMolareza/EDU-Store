@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Store.Data;
 using Store.Models;
+using Store.Utilities;
 
 namespace Store.Areas.Admin.Pages.Orders;
 
@@ -40,13 +41,14 @@ public class DetailsModel : PageModel {
         var order = await LoadDataAsync(id);
         if (order is null) return NotFound();
 
-        Order = ConvertToViewModel(order);
+        var userTimeZone = HttpContext.Request.Cookies["TimeZone"];
+        Order = ConvertToViewModel(order, userTimeZone);
         return Page();
     }
 
-    private static OrderDetail ConvertToViewModel(Order order) => new() {
+    private static OrderDetail ConvertToViewModel(Order order, string? userTimeZone) => new() {
         Id       = order.Id,
-        DateTime = order.DateTime.ToLocalTime(),
+        DateTime = order.DateTime.ConvertToLocalTime(userTimeZone),
         UserName = order.User.UserName!,
         Products = order.Products.Select(p => new OrderedProduct {
             Name          = p.Name,
@@ -79,7 +81,8 @@ public class DetailsModel : PageModel {
                            : OrderStatus.Processing;
         await _context.SaveChangesAsync();
 
-        Order = ConvertToViewModel(order);
+        var userTimeZone = HttpContext.Request.Cookies["TimeZone"];
+        Order = ConvertToViewModel(order, userTimeZone);
         return Page();
     }
 }

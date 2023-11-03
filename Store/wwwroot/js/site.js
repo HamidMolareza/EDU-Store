@@ -18,3 +18,34 @@
         imageContainer.style.display = 'block'
     }
 }
+
+function getTimeZone() {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone; //For example: Asia/Tehran
+}
+
+function setCookie(name, value, days) {
+    const expirationDate = days ? new Date(Date.now() + days * 24 * 60 * 60 * 1000) : null;
+    const expires = expirationDate ? `; expires=${expirationDate.toUTCString()}` : '';
+    document.cookie = `${name}=${value || ''}${expires}; path=/`;
+}
+
+function getCookie(name) {
+    const nameEQ = name + '=';
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim(); // Remove leading and trailing spaces
+        if (cookie.startsWith(nameEQ)) {
+            return cookie.substring(nameEQ.length);
+        }
+    }
+    return null;
+}
+
+function setTimeZone() {
+    const timeZoneKey = "TimeZone";
+    if (!getCookie(timeZoneKey)) {
+        setCookie(timeZoneKey, getTimeZone(), 1)
+    }
+}
+
+setTimeZone();
