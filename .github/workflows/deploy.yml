@@ -21,7 +21,8 @@ jobs:
       - name: Publish project
         run: |
           dotnet publish -c Release -o publish
-          echo "Published Date: $(date "+%Y-%m-%d %H-%M-%S")" >> publish/published-date.txt
+          echo "Published Date: $(date -u "+%Y-%m-%d %H-%M-%S") UTC" >> publish/wwwroot/published-date.txt
+          cat publish/wwwroot/published-date.txt
 
       - name: Install chabok
         run: npm install -g @chabokan.net/cli
