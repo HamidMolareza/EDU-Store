@@ -2,7 +2,6 @@ using System.ComponentModel;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Store.Data;
-using Store.Utilities;
 
 namespace Store.Areas.Admin.Pages.Orders;
 
@@ -23,8 +22,6 @@ public class IndexModel : PageModel {
     }
 
     public async Task OnGetAsync() {
-        var userTimeZone = HttpContext.Request.Cookies["TimeZone"];
-
         Orders = await _context.Orders
                      .AsNoTracking()
                      .OrderByDescending(o => o.Id)
@@ -32,7 +29,7 @@ public class IndexModel : PageModel {
                      .Select(order => new OrderIndex {
                          Id       = order.Id,
                          Status   = order.Status,
-                         DateTime = order.DateTime.ConvertToLocalTime(userTimeZone),
+                         DateTime = order.DateTime,
                          UserName = order.User.UserName!
                      }).ToListAsync();
     }

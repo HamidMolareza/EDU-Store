@@ -19,33 +19,35 @@
     }
 }
 
-function getTimeZone() {
-    return Intl.DateTimeFormat().resolvedOptions().timeZone; //For example: Asia/Tehran
-}
+// Function to convert a time tag to local date and time
+function convertTimeTagsToLocal() {
+    const timeTags = document.getElementsByTagName('time');
 
-function setCookie(name, value, days) {
-    const expirationDate = days ? new Date(Date.now() + days * 24 * 60 * 60 * 1000) : null;
-    const expires = expirationDate ? `; expires=${expirationDate.toUTCString()}` : '';
-    document.cookie = `${name}=${value || ''}${expires}; path=/`;
-}
+    for (const timeTag of timeTags) {
+        const datetime = timeTag.getAttribute('datetime') + " UTC";
+        if (datetime) {
+            const utcDate = new Date(datetime);
+            const localDate = new Date(utcDate.toLocaleString());
 
-function getCookie(name) {
-    const nameEQ = name + '=';
-    const cookies = document.cookie.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-        let cookie = cookies[i].trim(); // Remove leading and trailing spaces
-        if (cookie.startsWith(nameEQ)) {
-            return cookie.substring(nameEQ.length);
+            // Format the localDate to "yyyy/MM/dd HH:mm" format
+            const formattedDate = formatDateTIme(localDate);
+
+            timeTag.textContent = formattedDate;
         }
     }
-    return null;
 }
 
-function setTimeZone() {
-    const timeZoneKey = "TimeZone";
-    if (!getCookie(timeZoneKey)) {
-        setCookie(timeZoneKey, getTimeZone(), 1)
-    }
+function formatDateTIme(date){
+    const year = date.getFullYear();
+    const month = (1 + date.getMonth()).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const seconds = date.getSeconds().toString().padStart(2, '0');
+    const formattedDate = `${hours}:${minutes}:${seconds} ${day}/${month}/${year}`;
+    return formattedDate;
 }
 
-setTimeZone();
+
+// Call the conversion function
+convertTimeTagsToLocal();

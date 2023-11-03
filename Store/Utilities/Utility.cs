@@ -15,19 +15,4 @@ public static class Utility {
     public static IActionResult RedirectToReturnUrl(string? returnUrl, IActionResult defaultRedirect) {
         return returnUrl is null ? defaultRedirect : new LocalRedirectResult(returnUrl);
     }
-
-    /// <summary>
-    /// Convert UTC time to user's local time zone
-    /// </summary>
-    /// <param name="utcDateTime"></param>
-    /// <param name="userTimeZone"></param>
-    /// <returns></returns>
-    public static DateTime ConvertToLocalTime(this DateTime utcDateTime, string? userTimeZone) {
-        if (userTimeZone is null)
-            return utcDateTime.ToLocalTime();
-
-        var userTimeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById(userTimeZone);
-        var localTime        = TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, userTimeZoneInfo);
-        return localTime;
-    }
 }

@@ -39,7 +39,7 @@
                 @Html.DisplayNameFor(model => model.Order.DateTime)
             </dt>
             <dd class="col-sm-10 my-2">
-                @Html.DisplayFor(model => model.Order.DateTime)
+                <time datetime="@Model.Order.DateTime"></time>
             </dd>
         </div>
         <div class="mt-3">
