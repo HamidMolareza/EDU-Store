@@ -25,11 +25,16 @@
                         package_2
                     </span>
                     @Html.DisplayNameFor(model => model.ProductModel.StockQuantity):
-                    @if (Model.ProductModel.StockQuantity < 10) {
-                        <span class="text-danger">فقط @Model.ProductModel.StockQuantity عدد باقی‌مانده است</span>
-                    }
-                    else {
-                        @Html.DisplayFor(model => model.ProductModel.StockQuantity)
+                    @switch (Model.ProductModel.StockQuantity) {
+                        case < 1:
+                            <span class="text-secondary">متاسفانه این محصول تمام شده است.</span>
+                            break;
+                        case < 10:
+                            <span class="text-danger">فقط @Model.ProductModel.StockQuantity عدد باقی‌مانده است</span>
+                            break;
+                        default:
+                            @Html.DisplayFor(model => model.ProductModel.StockQuantity)
+                            break;
                     }
                 </div>
                 <div class="align-items-center d-flex gap-1">

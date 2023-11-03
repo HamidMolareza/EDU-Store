@@ -57,6 +57,7 @@ public class Index : PaginationModel<Index.Product> {
         );
 
         var query = _context.Products.AsNoTracking()
+            .Where(product => product.StockQuantity > 0)
             .Include(product => product.ProductCategories).AsQueryable();
 
         if (categoryId > 0) {
