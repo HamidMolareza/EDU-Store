@@ -8,7 +8,7 @@
     var cartCount = 0;
     var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
     if (userId is not null)
-        cartCount = await AppContext.Carts.CountAsync(cart => cart.UserId == userId && !cart.IsArchived);
+        cartCount = await AppContext.Carts.CountAsync(cart => cart.UserId == userId);
 }
 
 <!DOCTYPE html>

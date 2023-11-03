@@ -48,8 +48,8 @@ public class DetailsModel : PageModel {
             Phone     = user.PhoneNumber,
             Email     = user.Email,
             IsLockout = await _userManager.IsLockedOutAsync(user),
-            ProductsBought = await _context.Carts.Where(cart => cart.IsArchived && cart.UserId == id)
-                                 .SumAsync(cart => cart.Quantity)
+            ProductsBought = await _context.OrderedProducts.Where(orderedProduct => orderedProduct.UserId == id)
+                                 .SumAsync(orderedProduct => orderedProduct.StockQuantity)
         };
         return Page();
     }

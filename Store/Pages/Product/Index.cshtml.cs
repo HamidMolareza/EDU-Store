@@ -70,7 +70,7 @@ public class Index : PageModel {
         if (userId is not null) {
             productModel.IsInCart =
                 await _context.Carts.AnyAsync(cart =>
-                    !cart.IsArchived && cart.UserId == userId && cart.ProductId == id);
+                    cart.UserId == userId && cart.ProductId == id);
         }
 
         return productModel;
@@ -92,7 +92,7 @@ public class Index : PageModel {
 
         var cart = await _context.Carts.AsNoTracking()
                        .FirstOrDefaultAsync(cart =>
-                           cart.UserId == userId && cart.ProductId == productId && !cart.IsArchived);
+                           cart.UserId == userId && cart.ProductId == productId);
         if (cart is not null) return RedirectToPage("./Index");
 
         cart = new Models.Cart {
@@ -120,7 +120,7 @@ public class Index : PageModel {
         var cart = await _context.Carts
                        .AsNoTracking()
                        .FirstOrDefaultAsync(cart =>
-                           cart.UserId == userId && cart.ProductId == productId && !cart.IsArchived);
+                           cart.UserId == userId && cart.ProductId == productId);
         if (cart is null) return RedirectToPage("./Index");
 
         _context.Carts.Remove(cart);

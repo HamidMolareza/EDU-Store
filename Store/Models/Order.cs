@@ -4,16 +4,15 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Store.Models;
 
-public class Cart {
+public class Order {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
+    public DateTime DateTime { get; set; } = DateTime.UtcNow;
+    public List<OrderedProduct> Products { get; set; } = new();
+    public int Status { get; set; } = OrderStatus.Processing;
+
     public string UserId { get; set; } = default!;
     public IdentityUser User { get; set; } = default!;
-
-    public int ProductId { get; set; }
-    public Product Product { get; set; } = default!;
-
-    public int Quantity { get; set; }
 }

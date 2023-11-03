@@ -1,0 +1,85 @@
+@page
+@using Store.Models
+@model Store.Areas.Admin.Pages.Orders.DetailsModel
+
+@{
+    ViewData["Title"] = $"جزئیات سفارش";
+}
+
+<div class="card">
+    <div class="card-header text-center">@ViewData["Title"]</div>
+    <div class="card-body p-4">
+        <div class="row">
+            <dt class="col-sm-2 my-2">
+                @Html.DisplayNameFor(model => model.Order.Id):
+            </dt>
+            <dd class="col-sm-10 my-2">
+                @Html.DisplayFor(model => model.Order.Id)
+            </dd>
+            <dt class="col-sm-2 my-2">
+                @Html.DisplayNameFor(model => model.Order.UserName):
+            </dt>
+            <dd class="col-sm-10 my-2">
+                @Html.DisplayFor(model => model.Order.UserName)
+            </dd>
+            <dt class="col-sm-2 my-2">
+                @Html.DisplayNameFor(model => model.Order.Status):
+            </dt>
+            <dd class="col-sm-10 my-2">
+                @switch (Model.Order.Status) {
+                    case OrderStatus.Processing:
+                        <span class="bg-primary px-2 py-1 rounded-2 text-white user-select-none" style="font-size: 0.9rem">در حال پردازش</span>
+                        break;
+                    case OrderStatus.Delivered:
+                        <span class="bg-success px-2 py-1 rounded-2 text-white user-select-none" style="font-size: 0.9rem">تحویل داده شده</span>
+                        break;
+                }
+            </dd>
+            <dt class="col-sm-2 my-2">
+                @Html.DisplayNameFor(model => model.Order.DateTime)
+            </dt>
+            <dd class="col-sm-10 my-2">
+                @Html.DisplayFor(model => model.Order.DateTime)
+            </dd>
+        </div>
+        <div class="mt-3">
+            <span class="fw-bold">محصولات سفارش داده شده</span>:
+            <div class="d-flex flex-column gap-4 gap-md-3 mt-2">
+                @for (var i = 0; i < Model.Order.Products.Count; i++) {
+                    var product = Model.Order.Products[i];
+                    <div class="d-flex flex-column flex-md-row gap-3 mr-2">
+                        <img alt="@product.Name" class="rounded-2" height="135px" src="@product.Image" width="135px"/>
+                        <div class="d-flex flex-column gap-3 justify-content-center">
+                            <div class="d-flex flex-row gap-2">
+                                <span class="fw-bold">@Html.DisplayNameFor(model => product.Name):</span>
+                                <span style="font-size: 0.9rem">@Html.DisplayFor(model => product.Name)</span>
+                            </div>
+
+                            <div class="d-flex flex-row gap-2">
+                                <span class="fw-bold">@Html.DisplayNameFor(model => product.Price):</span>
+                                <span style="font-size: 0.9rem">@Html.DisplayFor(model => product.Price)</span>
+                            </div>
+                            <div class="d-flex flex-row gap-2">
+                                <span class="fw-bold">@Html.DisplayNameFor(model => product.StockQuantity):</span>
+                                <span style="font-size: 0.9rem">@Html.DisplayFor(model => product.StockQuantity)</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="align-items-center d-flex flex-row gap-2 mt-4">
+            <a asp-page="./Index">بازگشت به لیست</a> |
+            <form method="post">
+                <input asp-for="Order.Id" type="hidden"/>
+                @if (Model.Order.Status == 0) {
+                    <input class="btn btn-primary btn-sm" type="submit" value="تحویل داده شد"/>
+                }
+                else {
+                    <input class="btn btn-primary btn-sm" type="submit" value="هنوز در حال پردازش است"/>
+                }
+            </form>
+        </div>
+    </div>
+
+</div>

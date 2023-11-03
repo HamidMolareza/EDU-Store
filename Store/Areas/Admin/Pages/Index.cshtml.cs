@@ -30,8 +30,8 @@ public class IndexModel : PageModel {
         InfoModel.NumOfMembers    = await _userManager.Users.CountAsync();
         InfoModel.NumOfCategories = await _context.Categories.CountAsync();
         InfoModel.NumOfProducts   = await _context.Products.CountAsync();
-        InfoModel.TotalSales      = await _context.Carts.Where(cart => cart.IsArchived).SumAsync(cart => cart.Quantity);
+        InfoModel.TotalSales      = await _context.OrderedProducts.SumAsync(op => op.StockQuantity);
         InfoModel.TotalProductsInCart =
-            await _context.Carts.Where(cart => !cart.IsArchived).SumAsync(cart => cart.Quantity);
+            await _context.Carts.SumAsync(cart => cart.Quantity);
     }
 }

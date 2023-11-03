@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Store.Data;
+using Store.Models;
 
 namespace Store.Pages.Cart;
 
@@ -58,7 +59,7 @@ public class Index : PageModel {
 
         var carts = await _context.Carts.AsNoTracking()
                         .OrderBy(cart => cart.Id)
-                        .Where(cart => cart.UserId == userId && !cart.IsArchived)
+                        .Where(cart => cart.UserId == userId)
                         .Include(cart => cart.Product)
                         .Select(cart => new Cart {
                             CartId   = cart.Id,
@@ -95,7 +96,7 @@ public class Index : PageModel {
 
         var hasError = _context.Carts
             .Include(cart => cart.Product)
-            .Where(cart => !cart.IsArchived && cart.UserId == userId)
+            .Where(cart => cart.UserId == userId)
             .Any(cart => cart.Quantity > cart.Product.StockQuantity);
         if (hasError) {
             await LoadDataAsync();
@@ -103,14 +104,25 @@ public class Index : PageModel {
         }
 
         var carts = await _context.Carts
-                        .Where(cart => !cart.IsArchived && cart.UserId == userId)
+                        .Where(cart => cart.UserId == userId)
                         .Include(cart => cart.Product)
                         .ToListAsync();
 
         foreach (var cart in carts) {
-            cart.IsArchived            =  true;
+            _context.Carts.Remove(cart);
             cart.Product.StockQuantity -= cart.Quantity;
         }
+
+        _context.Orders.Add(new Order {
+            UserId = userId,
+            Products = carts.Select(cart => new OrderedProduct {
+                Name          = cart.Product.Name,
+                Price         = cart.Product.Price,
+                StockQuantity = cart.Quantity,
+                Image         = cart.Product.Image,
+                UserId        = userId
+            }).ToList()
+        });
 
         await _context.SaveChangesAsync();
         return RedirectToPage("./Success");
@@ -119,7 +131,7 @@ public class Index : PageModel {
     public async Task<IActionResult> OnPostDeleteCart(int? cartId) {
         if (cartId is null) return RedirectToPage("./Index");
 
-        var exists = await _context.Carts.AnyAsync(cart => !cart.IsArchived && cart.Id == cartId);
+        var exists = await _context.Carts.AnyAsync(cart => cart.Id == cartId);
         if (!exists) return RedirectToPage("./Index");
 
         _context.Carts.Remove(new Models.Cart {
@@ -135,7 +147,7 @@ public class Index : PageModel {
 
         var cart = await _context.Carts
                        .Include(cart => cart.Product)
-                       .FirstOrDefaultAsync(cart => cart.Id == cartId && !cart.IsArchived);
+                       .FirstOrDefaultAsync(cart => cart.Id == cartId);
         if (cart is null) return RedirectToPage("./Index");
 
         cart.Quantity++;
@@ -152,7 +164,7 @@ public class Index : PageModel {
 
         var cart = await _context.Carts
                        .Include(cart => cart.Product)
-                       .FirstOrDefaultAsync(cart => cart.Id == cartId && !cart.IsArchived);
+                       .FirstOrDefaultAsync(cart => cart.Id == cartId);
         if (cart is null) return RedirectToPage("./Index");
 
         cart.Quantity--;
