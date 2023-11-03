@@ -8,11 +8,9 @@ namespace Store.Areas.Admin.Pages.Members;
 
 public class IndexModel : PaginationModel<IndexModel.User> {
     private readonly UserManager<IdentityUser> _userManager;
-    private readonly SignInManager<IdentityUser> _signInManager;
 
-    public IndexModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager) {
-        _userManager   = userManager;
-        _signInManager = signInManager;
+    public IndexModel(UserManager<IdentityUser> userManager) {
+        _userManager = userManager;
     }
 
     public class User {
@@ -25,6 +23,7 @@ public class IndexModel : PaginationModel<IndexModel.User> {
 
     public async Task OnGetAsync(int? p, int? limit) {
         var query = _userManager.Users.AsNoTracking()
+            .OrderByDescending(user=> user.Id)
             .Select(user => new User {
                 Id        = user.Id,
                 DisplayId = user.Id,

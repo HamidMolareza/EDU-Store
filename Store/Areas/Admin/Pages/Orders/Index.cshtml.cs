@@ -2,17 +2,16 @@ using System.ComponentModel;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Store.Data;
+using Store.Utilities;
 
 namespace Store.Areas.Admin.Pages.Orders;
 
-public class IndexModel : PageModel {
+public class IndexModel : PaginationModel<IndexModel.OrderIndex> {
     private readonly ApplicationDbContext _context;
 
     public IndexModel(ApplicationDbContext context) {
         _context = context;
     }
-
-    public IList<OrderIndex> Orders { get; set; } = default!;
 
     public class OrderIndex {
         [DisplayName("آی‌دی")] public int Id { get; set; }
@@ -21,16 +20,18 @@ public class IndexModel : PageModel {
         [DisplayName("سفارش‌دهنده")] public string UserName { get; set; }
     }
 
-    public async Task OnGetAsync() {
-        Orders = await _context.Orders
-                     .AsNoTracking()
-                     .OrderByDescending(o => o.Id)
-                     .Include(o => o.User)
-                     .Select(order => new OrderIndex {
-                         Id       = order.Id,
-                         Status   = order.Status,
-                         DateTime = order.DateTime,
-                         UserName = order.User.UserName!
-                     }).ToListAsync();
+    public async Task OnGetAsync(int? p, int? limit) {
+        var query = _context.Orders
+            .AsNoTracking()
+            .OrderByDescending(o => o.Id)
+            .Include(o => o.User)
+            .Select(order => new OrderIndex {
+                Id       = order.Id,
+                Status   = order.Status,
+                DateTime = order.DateTime,
+                UserName = order.User.UserName!
+            });
+
+        await LoadItemsAsync(query, p, limit ?? 10);
     }
 }
