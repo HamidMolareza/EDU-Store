@@ -6,8 +6,7 @@ namespace Store.Data;
 
 public class ApplicationDbContext : IdentityDbContext {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options) {
-    }
+        : base(options) { }
 
     public DbSet<ContactUsMessage> Messages { get; set; }
     public DbSet<Product> Products { get; set; }
@@ -22,5 +21,11 @@ public class ApplicationDbContext : IdentityDbContext {
 
         modelBuilder.Entity<ProductCategory>()
             .HasKey(productCategory => new { productCategory.CategoryId, productCategory.ProductId });
+
+        modelBuilder.Entity<OrderedProduct>()
+            .HasOne(op => op.Order)
+            .WithMany(o => o.Products)
+            .HasForeignKey(op => op.OrderId)
+            .OnDelete(DeleteBehavior.NoAction); // Specify ON DELETE NO ACTION
     }
 }
