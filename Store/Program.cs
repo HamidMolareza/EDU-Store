@@ -32,8 +32,8 @@ else {
     app.UseHsts();
 }
 
-using var scope    = app.Services.CreateScope();
-var       services = scope.ServiceProvider;
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
 await DbInitializer.InitializeAsync(services);
 
 if (!app.Environment.IsDevelopment())

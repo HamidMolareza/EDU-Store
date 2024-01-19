@@ -9,7 +9,7 @@ public class Product {
     public int Id { get; set; }
 
     [Required] [MinLength(3)] public string Name { get; set; } = default!; // Product name
-    [MaxLength(80)] public string? Description { get; set; }               // Product description
+    [MaxLength(100)] public string? Description { get; set; }               // Product description
     public List<ProductCategory> ProductCategories { get; set; } = new();  // Product category
     public decimal Price { get; set; }                                     // Product price
     [Range(0, int.MaxValue)] public int StockQuantity { get; set; }        // Current stock quantity

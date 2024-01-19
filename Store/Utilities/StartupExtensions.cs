@@ -6,11 +6,12 @@ namespace Store.Utilities;
 
 public static class StartupExtensions {
     public static IServiceCollection AddDatabase(this IServiceCollection services, bool isDevelopment,
-                                                 ConfigurationManager configuration) {
+        ConfigurationManager configuration) {
         var connectionString = configuration.GetConnectionString("DefaultConnection") ??
                                throw new InvalidOperationException(
                                    "Connection string 'DefaultConnection' not found.");
         if (isDevelopment) {
+            Console.WriteLine($"Is Development: {isDevelopment}");
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseInMemoryDatabase(connectionString));
         }
@@ -29,17 +30,17 @@ public static class StartupExtensions {
 
         services.Configure<IdentityOptions>(options => {
             // Password settings.
-            options.Password.RequireDigit           = false;
-            options.Password.RequireLowercase       = false;
+            options.Password.RequireDigit = false;
+            options.Password.RequireLowercase = false;
             options.Password.RequireNonAlphanumeric = false;
-            options.Password.RequireUppercase       = false;
-            options.Password.RequiredLength         = 3;
-            options.Password.RequiredUniqueChars    = 1;
+            options.Password.RequireUppercase = false;
+            options.Password.RequiredLength = 3;
+            options.Password.RequiredUniqueChars = 1;
 
             // Lockout settings.
-            options.Lockout.DefaultLockoutTimeSpan  = TimeSpan.FromMinutes(2);
+            options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2);
             options.Lockout.MaxFailedAccessAttempts = 5;
-            options.Lockout.AllowedForNewUsers      = true;
+            options.Lockout.AllowedForNewUsers = true;
         });
 
         return services;
