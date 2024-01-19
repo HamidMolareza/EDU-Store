@@ -10,6 +10,8 @@ public static class DbInitializer {
         await using var context = new ApplicationDbContext(
             serviceProvider.GetRequiredService<
                 DbContextOptions<ApplicationDbContext>>());
+        
+        await context.Database.EnsureCreatedAsync();
 
         await InitUsersAsync(serviceProvider);
         await context.InitContactUsMessages();
